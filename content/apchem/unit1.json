@@ -1,0 +1,2850 @@
+[
+  {
+    "subject": "AP Chemistry",
+    "unit": "Unit 1: Atomic Structure and Properties",
+    "unit_exam_weight_pct": 9,
+    "deck": "Moles and Molar Mass",
+    "type": "mc_static",
+    "difficulty": "easy",
+    "tags": [
+      "mole_concept",
+      "avogadro"
+    ],
+    "source": "ced_generated",
+    "reviewed": false,
+    "visual": null,
+    "content": {
+      "stem": "What is the value of Avogadro's number?",
+      "options": [
+        "6.022 × 10²³ mol⁻¹",
+        "6.022 × 10²⁰ mol⁻¹",
+        "6.022 × 10²⁶ mol⁻¹",
+        "3.011 × 10²³ mol⁻¹"
+      ],
+      "correct_index": 0
+    }
+  },
+  {
+    "subject": "AP Chemistry",
+    "unit": "Unit 1: Atomic Structure and Properties",
+    "unit_exam_weight_pct": 9,
+    "deck": "Moles and Molar Mass",
+    "type": "mc_static",
+    "difficulty": "easy",
+    "tags": [
+      "molar_mass",
+      "mole_concept"
+    ],
+    "source": "ced_generated",
+    "reviewed": false,
+    "visual": null,
+    "content": {
+      "stem": "The molar mass of a substance is numerically equal to which of the following?",
+      "options": [
+        "The number of atoms in one gram of the substance",
+        "The mass in grams of one mole of that substance",
+        "The mass in kilograms of Avogadro's number of molecules",
+        "The number of moles in one gram of the substance"
+      ],
+      "correct_index": 1
+    }
+  },
+  {
+    "subject": "AP Chemistry",
+    "unit": "Unit 1: Atomic Structure and Properties",
+    "unit_exam_weight_pct": 9,
+    "deck": "Moles and Molar Mass",
+    "type": "mc_static",
+    "difficulty": "medium",
+    "tags": [
+      "mole_concept",
+      "particle_count",
+      "dimensional_analysis"
+    ],
+    "source": "ced_generated",
+    "reviewed": false,
+    "visual": null,
+    "content": {
+      "stem": "Which of the following samples contains the greatest number of molecules? (Molar masses: CH₄ = 16.04 g/mol)",
+      "options": [
+        "1.0 mol of CH₄",
+        "3.0 × 10²³ molecules of CH₄",
+        "30.0 g of CH₄",
+        "12.04 g of CH₄"
+      ],
+      "correct_index": 2
+    }
+  },
+  {
+    "subject": "AP Chemistry",
+    "unit": "Unit 1: Atomic Structure and Properties",
+    "unit_exam_weight_pct": 9,
+    "deck": "Mass Spectra of Elements",
+    "type": "mc_static",
+    "difficulty": "easy",
+    "tags": [
+      "mass_spectrometry",
+      "isotopes"
+    ],
+    "source": "ced_generated",
+    "reviewed": false,
+    "visual": null,
+    "content": {
+      "stem": "What information can be directly obtained from the mass spectrum of a pure element?",
+      "options": [
+        "The number of protons in the nucleus",
+        "The total number of electrons in the atom",
+        "The chemical formula of the element's most stable compound",
+        "The masses and relative abundances of its isotopes"
+      ],
+      "correct_index": 3
+    }
+  },
+  {
+    "subject": "AP Chemistry",
+    "unit": "Unit 1: Atomic Structure and Properties",
+    "unit_exam_weight_pct": 9,
+    "deck": "Mass Spectra of Elements",
+    "type": "mc_static",
+    "difficulty": "medium",
+    "tags": [
+      "average_atomic_mass",
+      "isotopes",
+      "mass_spectrometry"
+    ],
+    "source": "ced_generated",
+    "reviewed": false,
+    "visual": null,
+    "content": {
+      "stem": "A mass spectrum of element X shows two peaks: one at m/z = 69 with a relative intensity of 60.1% and one at m/z = 71 with a relative intensity of 39.9%. Which of the following is the best estimate of the average atomic mass of element X?",
+      "options": [
+        "69.8 amu",
+        "69.0 amu",
+        "71.0 amu",
+        "70.0 amu"
+      ],
+      "correct_index": 0
+    }
+  },
+  {
+    "subject": "AP Chemistry",
+    "unit": "Unit 1: Atomic Structure and Properties",
+    "unit_exam_weight_pct": 9,
+    "deck": "Mass Spectra of Elements",
+    "type": "mc_static",
+    "difficulty": "hard",
+    "tags": [
+      "mass_spectrometry",
+      "isotopes",
+      "element_identification"
+    ],
+    "source": "ced_generated",
+    "reviewed": false,
+    "visual": null,
+    "content": {
+      "stem": "A mass spectrum of a pure element shows two peaks: m/z = 63 with a relative intensity of 69.2% and m/z = 65 with a relative intensity of 30.8%. Which element is most likely being analyzed?",
+      "options": [
+        "Zinc (Zn)",
+        "Copper (Cu)",
+        "Nickel (Ni)",
+        "Gallium (Ga)"
+      ],
+      "correct_index": 1
+    }
+  },
+  {
+    "subject": "AP Chemistry",
+    "unit": "Unit 1: Atomic Structure and Properties",
+    "unit_exam_weight_pct": 9,
+    "deck": "Elemental Composition of Pure Substances",
+    "type": "mc_static",
+    "difficulty": "easy",
+    "tags": [
+      "law_of_definite_proportions",
+      "pure_substance"
+    ],
+    "source": "ced_generated",
+    "reviewed": false,
+    "visual": null,
+    "content": {
+      "stem": "The law of definite proportions states that a pure compound always contains its elements in what ratio?",
+      "options": [
+        "A fixed ratio by volume",
+        "A ratio equal to the atomic number of each element",
+        "A fixed ratio by mass",
+        "A ratio determined by the temperature of formation"
+      ],
+      "correct_index": 2
+    }
+  },
+  {
+    "subject": "AP Chemistry",
+    "unit": "Unit 1: Atomic Structure and Properties",
+    "unit_exam_weight_pct": 9,
+    "deck": "Elemental Composition of Pure Substances",
+    "type": "mc_static",
+    "difficulty": "medium",
+    "tags": [
+      "empirical_formula",
+      "percent_composition"
+    ],
+    "source": "ced_generated",
+    "reviewed": false,
+    "visual": null,
+    "content": {
+      "stem": "What does elemental analysis of a pure compound allow a chemist to directly determine?",
+      "options": [
+        "The molecular formula of the compound",
+        "The three-dimensional structure of the compound",
+        "The type of intramolecular bonding present",
+        "The empirical formula of the compound"
+      ],
+      "correct_index": 3
+    }
+  },
+  {
+    "subject": "AP Chemistry",
+    "unit": "Unit 1: Atomic Structure and Properties",
+    "unit_exam_weight_pct": 9,
+    "deck": "Elemental Composition of Pure Substances",
+    "type": "mc_static",
+    "difficulty": "hard",
+    "tags": [
+      "empirical_formula",
+      "molecular_formula",
+      "molar_mass"
+    ],
+    "source": "ced_generated",
+    "reviewed": false,
+    "visual": null,
+    "content": {
+      "stem": "A compound has an empirical formula of CH₂O and a measured molar mass of 90.0 g/mol. What is the molecular formula of this compound?",
+      "options": [
+        "C₂H₄O₂",
+        "CH₂O",
+        "C₃H₆O₃",
+        "C₄H₈O₄"
+      ],
+      "correct_index": 2
+    }
+  },
+  {
+    "subject": "AP Chemistry",
+    "unit": "Unit 1: Atomic Structure and Properties",
+    "unit_exam_weight_pct": 9,
+    "deck": "Composition of Mixtures",
+    "type": "mc_static",
+    "difficulty": "easy",
+    "tags": [
+      "mixtures",
+      "pure_substance"
+    ],
+    "source": "ced_generated",
+    "reviewed": false,
+    "visual": null,
+    "content": {
+      "stem": "Which of the following best distinguishes a pure substance from a mixture?",
+      "options": [
+        "A pure substance is always a solid, while a mixture can be any phase.",
+        "A pure substance contains only one type of atom, molecule, or formula unit, while a mixture contains two or more types whose proportions can vary.",
+        "A pure substance cannot be broken down by physical means, while a mixture can.",
+        "A pure substance has a definite color, while a mixture does not."
+      ],
+      "correct_index": 1
+    }
+  },
+  {
+    "subject": "AP Chemistry",
+    "unit": "Unit 1: Atomic Structure and Properties",
+    "unit_exam_weight_pct": 9,
+    "deck": "Composition of Mixtures",
+    "type": "mc_static",
+    "difficulty": "medium",
+    "tags": [
+      "elemental_analysis",
+      "mixtures",
+      "purity"
+    ],
+    "source": "ced_generated",
+    "reviewed": false,
+    "visual": null,
+    "content": {
+      "stem": "A chemist uses elemental analysis on an unknown solid and finds it contains 75.0% C and 25.0% H by mass. Which conclusion is best supported by this data?",
+      "options": [
+        "The solid must be a pure compound with molecular formula CH₄.",
+        "The solid is definitely a mixture because it contains more than one element.",
+        "The empirical formula of the solid has a C:H mole ratio of approximately 1:4.",
+        "No conclusion can be drawn without knowing the molar mass."
+      ],
+      "correct_index": 2
+    }
+  },
+  {
+    "subject": "AP Chemistry",
+    "unit": "Unit 1: Atomic Structure and Properties",
+    "unit_exam_weight_pct": 9,
+    "deck": "Atomic Structure and Electron Configuration",
+    "type": "mc_static",
+    "difficulty": "easy",
+    "tags": [
+      "electron_configuration",
+      "core_electrons",
+      "valence_electrons"
+    ],
+    "source": "ced_generated",
+    "reviewed": false,
+    "visual": null,
+    "content": {
+      "stem": "Which of the following best describes core electrons?",
+      "options": [
+        "Electrons in the highest occupied energy level of the atom",
+        "Electrons that are shared between two atoms",
+        "Electrons that have been removed from the atom to form a cation",
+        "Electrons occupying inner shells that are not in the outermost energy level of the atom"
+      ],
+      "correct_index": 3
+    }
+  },
+  {
+    "subject": "AP Chemistry",
+    "unit": "Unit 1: Atomic Structure and Properties",
+    "unit_exam_weight_pct": 9,
+    "deck": "Atomic Structure and Electron Configuration",
+    "type": "mc_static",
+    "difficulty": "easy",
+    "tags": [
+      "electron_configuration",
+      "aufbau_principle"
+    ],
+    "source": "ced_generated",
+    "reviewed": false,
+    "visual": null,
+    "content": {
+      "stem": "What is the ground-state electron configuration of sodium (Na, Z = 11)?",
+      "options": [
+        "1s²2s²2p⁶3s¹",
+        "1s²2s²2p⁶3s²",
+        "1s²2s²2p⁵3s²",
+        "1s²2s²2p⁶"
+      ],
+      "correct_index": 0
+    }
+  },
+  {
+    "subject": "AP Chemistry",
+    "unit": "Unit 1: Atomic Structure and Properties",
+    "unit_exam_weight_pct": 9,
+    "deck": "Atomic Structure and Electron Configuration",
+    "type": "mc_static",
+    "difficulty": "medium",
+    "tags": [
+      "electron_configuration",
+      "aufbau_principle",
+      "transition_metals"
+    ],
+    "source": "ced_generated",
+    "reviewed": false,
+    "visual": null,
+    "content": {
+      "stem": "What is the ground-state electron configuration of iron (Fe, Z = 26)?",
+      "options": [
+        "[Ar]3d⁸",
+        "[Ar]3d⁶4s²",
+        "[Ar]3d⁵4s²4p¹",
+        "[Ar]3d⁷4s¹"
+      ],
+      "correct_index": 1
+    }
+  },
+  {
+    "subject": "AP Chemistry",
+    "unit": "Unit 1: Atomic Structure and Properties",
+    "unit_exam_weight_pct": 9,
+    "deck": "Atomic Structure and Electron Configuration",
+    "type": "mc_static",
+    "difficulty": "hard",
+    "tags": [
+      "electron_configuration",
+      "ions",
+      "aufbau_principle"
+    ],
+    "source": "ced_generated",
+    "reviewed": false,
+    "visual": null,
+    "content": {
+      "stem": "What is the ground-state electron configuration of the chloride ion (Cl⁻)?",
+      "options": [
+        "1s²2s²2p⁶3s²3p⁵",
+        "1s²2s²2p⁶3s²3p⁶3d¹",
+        "1s²2s²2p⁶3s²3p⁶",
+        "1s²2s²2p⁶3s¹3p⁶"
+      ],
+      "correct_index": 2
+    }
+  },
+  {
+    "subject": "AP Chemistry",
+    "unit": "Unit 1: Atomic Structure and Properties",
+    "unit_exam_weight_pct": 9,
+    "deck": "Photoelectron Spectroscopy",
+    "type": "mc_static",
+    "difficulty": "easy",
+    "tags": [
+      "pes",
+      "binding_energy",
+      "electron_configuration"
+    ],
+    "source": "ced_generated",
+    "reviewed": false,
+    "visual": null,
+    "content": {
+      "stem": "In a photoelectron spectrum (PES), what does the position (binding energy) of a peak represent?",
+      "options": [
+        "The number of electrons in the corresponding subshell",
+        "The distance of that subshell from the nucleus",
+        "The mass of an electron in that subshell",
+        "The energy required to remove an electron from the corresponding subshell"
+      ],
+      "correct_index": 3
+    }
+  },
+  {
+    "subject": "AP Chemistry",
+    "unit": "Unit 1: Atomic Structure and Properties",
+    "unit_exam_weight_pct": 9,
+    "deck": "Photoelectron Spectroscopy",
+    "type": "mc_static",
+    "difficulty": "medium",
+    "tags": [
+      "pes",
+      "peak_height",
+      "electron_count"
+    ],
+    "source": "ced_generated",
+    "reviewed": false,
+    "visual": null,
+    "content": {
+      "stem": "In a photoelectron spectrum, what does the relative height of a peak indicate?",
+      "options": [
+        "The relative number of electrons in that subshell",
+        "The binding energy of electrons in that subshell",
+        "The effective nuclear charge experienced by electrons in that subshell",
+        "The principal quantum number of the corresponding shell"
+      ],
+      "correct_index": 0
+    }
+  },
+  {
+    "subject": "AP Chemistry",
+    "unit": "Unit 1: Atomic Structure and Properties",
+    "unit_exam_weight_pct": 9,
+    "deck": "Photoelectron Spectroscopy",
+    "type": "mc_static",
+    "difficulty": "hard",
+    "tags": [
+      "pes",
+      "electron_configuration",
+      "element_identification"
+    ],
+    "source": "ced_generated",
+    "reviewed": false,
+    "visual": null,
+    "content": {
+      "stem": "A photoelectron spectrum shows exactly 4 peaks. Listed from highest to lowest binding energy, the relative heights of the peaks are in the ratio 1:1:3:1. Which element is most consistent with this spectrum?",
+      "options": [
+        "Sodium (Na)",
+        "Magnesium (Mg)",
+        "Silicon (Si)",
+        "Aluminum (Al)"
+      ],
+      "correct_index": 1
+    }
+  },
+  {
+    "subject": "AP Chemistry",
+    "unit": "Unit 1: Atomic Structure and Properties",
+    "unit_exam_weight_pct": 9,
+    "deck": "Periodic Trends",
+    "type": "mc_static",
+    "difficulty": "easy",
+    "tags": [
+      "ionization_energy",
+      "periodic_trends"
+    ],
+    "source": "ced_generated",
+    "reviewed": false,
+    "visual": null,
+    "content": {
+      "stem": "How does the first ionization energy generally change as you move from left to right across a period on the periodic table?",
+      "options": [
+        "It generally decreases",
+        "It remains constant",
+        "It generally increases",
+        "It alternates between increasing and decreasing with no general trend"
+      ],
+      "correct_index": 2
+    }
+  },
+  {
+    "subject": "AP Chemistry",
+    "unit": "Unit 1: Atomic Structure and Properties",
+    "unit_exam_weight_pct": 9,
+    "deck": "Periodic Trends",
+    "type": "mc_static",
+    "difficulty": "easy",
+    "tags": [
+      "atomic_radius",
+      "periodic_trends"
+    ],
+    "source": "ced_generated",
+    "reviewed": false,
+    "visual": null,
+    "content": {
+      "stem": "How does atomic radius generally change as you move down a group on the periodic table?",
+      "options": [
+        "It decreases because nuclear charge increases",
+        "It remains approximately constant within a group",
+        "It increases only for metals and decreases for nonmetals",
+        "It increases because each successive element has an additional electron shell"
+      ],
+      "correct_index": 3
+    }
+  },
+  {
+    "subject": "AP Chemistry",
+    "unit": "Unit 1: Atomic Structure and Properties",
+    "unit_exam_weight_pct": 9,
+    "deck": "Periodic Trends",
+    "type": "mc_static",
+    "difficulty": "medium",
+    "tags": [
+      "ionization_energy",
+      "periodic_trends",
+      "coulombs_law"
+    ],
+    "source": "ced_generated",
+    "reviewed": false,
+    "visual": null,
+    "content": {
+      "stem": "Which of the following correctly orders Period 3 elements from lowest to highest first ionization energy?",
+      "options": [
+        "Na < Mg < Cl < Ar",
+        "Na < Cl < Mg < Ar",
+        "Ar < Cl < Mg < Na",
+        "Mg < Na < Ar < Cl"
+      ],
+      "correct_index": 0
+    }
+  },
+  {
+    "subject": "AP Chemistry",
+    "unit": "Unit 1: Atomic Structure and Properties",
+    "unit_exam_weight_pct": 9,
+    "deck": "Periodic Trends",
+    "type": "mc_static",
+    "difficulty": "hard",
+    "tags": [
+      "ionization_energy",
+      "half_filled_subshell",
+      "periodic_trends"
+    ],
+    "source": "ced_generated",
+    "reviewed": false,
+    "visual": null,
+    "content": {
+      "stem": "The first ionization energy of oxygen (O) is lower than that of nitrogen (N), despite oxygen having a higher atomic number. Which of the following best explains this observation?",
+      "options": [
+        "Oxygen has more protons, which increases electron-electron repulsion in the outer shell.",
+        "Nitrogen's half-filled 2p subshell is especially stable, making it harder to remove an electron from nitrogen than from oxygen.",
+        "Nitrogen's 2p electrons are held closer to the nucleus than oxygen's 2p electrons.",
+        "Oxygen's higher effective nuclear charge lowers the energy needed to remove a valence electron."
+      ],
+      "correct_index": 1
+    }
+  },
+  {
+    "subject": "AP Chemistry",
+    "unit": "Unit 1: Atomic Structure and Properties",
+    "unit_exam_weight_pct": 9,
+    "deck": "Valence Electrons and Ionic Compounds",
+    "type": "mc_static",
+    "difficulty": "easy",
+    "tags": [
+      "valence_electrons",
+      "ionic_charge",
+      "periodic_table"
+    ],
+    "source": "ced_generated",
+    "reviewed": false,
+    "visual": null,
+    "content": {
+      "stem": "What is the typical ionic charge of an element in Group 2 of the periodic table?",
+      "options": [
+        "2−",
+        "1+",
+        "2+",
+        "1−"
+      ],
+      "correct_index": 2
+    }
+  },
+  {
+    "subject": "AP Chemistry",
+    "unit": "Unit 1: Atomic Structure and Properties",
+    "unit_exam_weight_pct": 9,
+    "deck": "Valence Electrons and Ionic Compounds",
+    "type": "mc_static",
+    "difficulty": "medium",
+    "tags": [
+      "periodic_table",
+      "analogous_compounds",
+      "valence_electrons"
+    ],
+    "source": "ced_generated",
+    "reviewed": false,
+    "visual": null,
+    "content": {
+      "stem": "Sodium (Na) reacts with chlorine to form NaCl. Which element is most likely to react with chlorine to form a compound with the same 1:1 formula type?",
+      "options": [
+        "Magnesium (Mg)",
+        "Calcium (Ca)",
+        "Sulfur (S)",
+        "Potassium (K)"
+      ],
+      "correct_index": 3
+    }
+  },
+  {
+    "subject": "AP Chemistry",
+    "unit": "Unit 1: Atomic Structure and Properties",
+    "unit_exam_weight_pct": 9,
+    "deck": "Valence Electrons and Ionic Compounds",
+    "type": "mc_static",
+    "difficulty": "hard",
+    "tags": [
+      "reactivity",
+      "valence_electrons",
+      "ionization_energy",
+      "coulombs_law"
+    ],
+    "source": "ced_generated",
+    "reviewed": false,
+    "visual": null,
+    "content": {
+      "stem": "Which of the following best explains why potassium (K) is more reactive than sodium (Na) toward water?",
+      "options": [
+        "K has a lower first ionization energy than Na because K's valence electron is in a shell farther from the nucleus, experiencing lower effective nuclear charge.",
+        "K has more valence electrons than Na, making it easier to lose electrons.",
+        "K has a higher electronegativity than Na, which increases its reactivity.",
+        "K's valence electron is in the 3s subshell, while Na's valence electron is in the 4s subshell."
+      ],
+      "correct_index": 0
+    }
+  },
+  {
+    "subject": "AP Chemistry",
+    "unit": "Unit 1: Atomic Structure and Properties",
+    "unit_exam_weight_pct": 9,
+    "deck": "Moles and Molar Mass",
+    "type": "mc_numeric",
+    "difficulty": "easy",
+    "tags": [
+      "mole_concept",
+      "molar_mass",
+      "dimensional_analysis"
+    ],
+    "source": "ced_generated",
+    "reviewed": false,
+    "visual": null,
+    "content": {
+      "stem": "How many moles of water (H₂O) are in a {{a}}-gram sample? (Molar mass of H₂O = 18.02 g/mol)",
+      "params": {
+        "a": {
+          "min": 36,
+          "max": 180,
+          "step": 18
+        }
+      },
+      "answer_formula": "a / 18.02",
+      "precision": 2,
+      "unit": "mol",
+      "distractors": [
+        {
+          "formula": "a * 18.02",
+          "error_type": "multiplied_by_molar_mass_instead_of_dividing"
+        },
+        {
+          "formula": "a / 2",
+          "error_type": "divided_by_number_of_hydrogen_atoms_instead_of_molar_mass"
+        },
+        {
+          "formula": "18.02 / a",
+          "error_type": "inverted_ratio"
+        }
+      ]
+    }
+  },
+  {
+    "subject": "AP Chemistry",
+    "unit": "Unit 1: Atomic Structure and Properties",
+    "unit_exam_weight_pct": 9,
+    "deck": "Moles and Molar Mass",
+    "type": "mc_numeric",
+    "difficulty": "easy",
+    "tags": [
+      "mole_concept",
+      "molar_mass",
+      "dimensional_analysis"
+    ],
+    "source": "ced_generated",
+    "reviewed": false,
+    "visual": null,
+    "content": {
+      "stem": "What is the mass in grams of {{a}} moles of NaCl? (Molar mass of NaCl = 58.44 g/mol)",
+      "params": {
+        "a": {
+          "min": 2,
+          "max": 6,
+          "step": 1
+        }
+      },
+      "answer_formula": "a * 58.44",
+      "precision": 1,
+      "unit": "g",
+      "distractors": [
+        {
+          "formula": "a / 58.44",
+          "error_type": "divided_by_molar_mass_instead_of_multiplying"
+        },
+        {
+          "formula": "a + 58.44",
+          "error_type": "added_molar_mass_instead_of_multiplying"
+        },
+        {
+          "formula": "58.44 * 2 * a",
+          "error_type": "doubled_molar_mass_incorrectly"
+        }
+      ]
+    }
+  },
+  {
+    "subject": "AP Chemistry",
+    "unit": "Unit 1: Atomic Structure and Properties",
+    "unit_exam_weight_pct": 9,
+    "deck": "Moles and Molar Mass",
+    "type": "mc_numeric",
+    "difficulty": "easy",
+    "tags": [
+      "mole_concept",
+      "avogadro",
+      "particle_count"
+    ],
+    "source": "ced_generated",
+    "reviewed": false,
+    "visual": null,
+    "content": {
+      "stem": "A sample contains {{a}} moles of CO₂ molecules. How many individual CO₂ molecules are in this sample? (Avogadro's number = 6.022 × 10²³ mol⁻¹)",
+      "params": {
+        "a": {
+          "min": 2,
+          "max": 10,
+          "step": 2
+        }
+      },
+      "answer_formula": "a * 6.022e23",
+      "precision": 3,
+      "unit": "molecules",
+      "distractors": [
+        {
+          "formula": "a / 6.022e23",
+          "error_type": "divided_by_avogadro_instead_of_multiplying"
+        },
+        {
+          "formula": "a * 6.022e23 / 3",
+          "error_type": "divided_by_number_of_atoms_in_CO2"
+        },
+        {
+          "formula": "6.022e23 / a",
+          "error_type": "inverted_ratio"
+        }
+      ]
+    }
+  },
+  {
+    "subject": "AP Chemistry",
+    "unit": "Unit 1: Atomic Structure and Properties",
+    "unit_exam_weight_pct": 9,
+    "deck": "Moles and Molar Mass",
+    "type": "mc_numeric",
+    "difficulty": "medium",
+    "tags": [
+      "mole_concept",
+      "molar_mass",
+      "dimensional_analysis"
+    ],
+    "source": "ced_generated",
+    "reviewed": false,
+    "visual": null,
+    "content": {
+      "stem": "A sample of carbon dioxide (CO₂) has a mass of {{a}} grams. How many moles of CO₂ are in this sample? (Molar mass of CO₂ = 44.01 g/mol)",
+      "params": {
+        "a": {
+          "min": 88,
+          "max": 440,
+          "step": 44
+        }
+      },
+      "answer_formula": "a / 44.01",
+      "precision": 2,
+      "unit": "mol",
+      "distractors": [
+        {
+          "formula": "a * 44.01",
+          "error_type": "multiplied_by_molar_mass_instead_of_dividing"
+        },
+        {
+          "formula": "44.01 / a",
+          "error_type": "inverted_ratio"
+        },
+        {
+          "formula": "a / 22.0",
+          "error_type": "used_molar_volume_at_STP_instead_of_molar_mass"
+        }
+      ]
+    }
+  },
+  {
+    "subject": "AP Chemistry",
+    "unit": "Unit 1: Atomic Structure and Properties",
+    "unit_exam_weight_pct": 9,
+    "deck": "Moles and Molar Mass",
+    "type": "mc_numeric",
+    "difficulty": "medium",
+    "tags": [
+      "mole_concept",
+      "avogadro",
+      "particle_count"
+    ],
+    "source": "ced_generated",
+    "reviewed": false,
+    "visual": null,
+    "content": {
+      "stem": "A sample contains {{a}} × 10²³ atoms of carbon. How many moles of carbon atoms does this represent? (Avogadro's number = 6.022 × 10²³ mol⁻¹)",
+      "params": {
+        "a": {
+          "min": 1,
+          "max": 5,
+          "step": 0.5
+        }
+      },
+      "answer_formula": "a / 6.022",
+      "precision": 3,
+      "unit": "mol",
+      "distractors": [
+        {
+          "formula": "a * 6.022",
+          "error_type": "multiplied_by_avogadro_instead_of_dividing"
+        },
+        {
+          "formula": "a / 2",
+          "error_type": "divided_by_number_of_electrons_instead_of_avogadro"
+        },
+        {
+          "formula": "a / 3.011",
+          "error_type": "used_half_avogadro_number"
+        }
+      ]
+    }
+  },
+  {
+    "subject": "AP Chemistry",
+    "unit": "Unit 1: Atomic Structure and Properties",
+    "unit_exam_weight_pct": 9,
+    "deck": "Moles and Molar Mass",
+    "type": "mc_numeric",
+    "difficulty": "medium",
+    "tags": [
+      "molar_mass",
+      "dimensional_analysis"
+    ],
+    "source": "ced_generated",
+    "reviewed": false,
+    "visual": null,
+    "content": {
+      "stem": "What is the mass in grams of {{a}} moles of iron (Fe)? (Molar mass of Fe = 55.85 g/mol)",
+      "params": {
+        "a": {
+          "min": 2,
+          "max": 6,
+          "step": 1
+        }
+      },
+      "answer_formula": "a * 55.85",
+      "precision": 1,
+      "unit": "g",
+      "distractors": [
+        {
+          "formula": "a / 55.85",
+          "error_type": "divided_by_molar_mass_instead_of_multiplying"
+        },
+        {
+          "formula": "a + 55.85",
+          "error_type": "added_molar_mass_instead_of_multiplying"
+        },
+        {
+          "formula": "55.85 / a",
+          "error_type": "inverted_ratio"
+        }
+      ]
+    }
+  },
+  {
+    "subject": "AP Chemistry",
+    "unit": "Unit 1: Atomic Structure and Properties",
+    "unit_exam_weight_pct": 9,
+    "deck": "Mass Spectra of Elements",
+    "type": "mc_numeric",
+    "difficulty": "medium",
+    "tags": [
+      "average_atomic_mass",
+      "isotopes",
+      "weighted_average"
+    ],
+    "source": "ced_generated",
+    "reviewed": false,
+    "visual": null,
+    "content": {
+      "stem": "A hypothetical element has two stable isotopes: Isotope A with mass 10.01 amu and {{a}}% natural abundance, and Isotope B with mass 11.01 amu with the remaining abundance. What is the average atomic mass of this element?",
+      "params": {
+        "a": {
+          "min": 60,
+          "max": 90,
+          "step": 10
+        }
+      },
+      "answer_formula": "10.01 * a / 100 + 11.01 * (1 - a / 100)",
+      "precision": 2,
+      "unit": "amu",
+      "distractors": [
+        {
+          "formula": "10.01 * (1 - a / 100) + 11.01 * a / 100",
+          "error_type": "swapped_abundances_for_the_two_isotopes"
+        },
+        {
+          "formula": "10.01 * a / 100 + 11.01 * a / 100",
+          "error_type": "used_same_abundance_for_both_isotopes_instead_of_complement"
+        },
+        {
+          "formula": "10.01 + 11.01 * a / 100",
+          "error_type": "omitted_abundance_factor_for_first_isotope"
+        }
+      ]
+    }
+  },
+  {
+    "subject": "AP Chemistry",
+    "unit": "Unit 1: Atomic Structure and Properties",
+    "unit_exam_weight_pct": 9,
+    "deck": "Mass Spectra of Elements",
+    "type": "mc_numeric",
+    "difficulty": "medium",
+    "tags": [
+      "average_atomic_mass",
+      "isotopes",
+      "weighted_average"
+    ],
+    "source": "ced_generated",
+    "reviewed": false,
+    "visual": null,
+    "content": {
+      "stem": "An element has two stable isotopes with masses of {{a}} amu and {{b}} amu, respectively. If the lighter isotope has 60.0% natural abundance, what is the average atomic mass of the element?",
+      "params": {
+        "a": {
+          "min": 6,
+          "max": 8,
+          "step": 0.5
+        },
+        "b": {
+          "min": 9,
+          "max": 11,
+          "step": 0.5
+        }
+      },
+      "answer_formula": "0.60 * a + 0.40 * b",
+      "precision": 2,
+      "unit": "amu",
+      "distractors": [
+        {
+          "formula": "0.40 * a + 0.60 * b",
+          "error_type": "swapped_abundances_assigning_60_percent_to_heavier_isotope"
+        },
+        {
+          "formula": "(a + b) / 2",
+          "error_type": "calculated_simple_average_ignoring_natural_abundances"
+        },
+        {
+          "formula": "0.24 * a * b",
+          "error_type": "multiplied_isotope_masses_and_abundances_instead_of_summing"
+        }
+      ]
+    }
+  },
+  {
+    "subject": "AP Chemistry",
+    "unit": "Unit 1: Atomic Structure and Properties",
+    "unit_exam_weight_pct": 9,
+    "deck": "Mass Spectra of Elements",
+    "type": "mc_numeric",
+    "difficulty": "hard",
+    "tags": [
+      "average_atomic_mass",
+      "isotopes",
+      "relative_abundance"
+    ],
+    "source": "ced_generated",
+    "reviewed": false,
+    "visual": null,
+    "content": {
+      "stem": "Chlorine has two naturally occurring isotopes: Cl-35 (mass = 34.97 amu) and Cl-37 (mass = 36.97 amu). If the average atomic mass of chlorine is {{a}} amu, what is the fractional abundance of Cl-35?",
+      "params": {
+        "a": {
+          "min": 35.1,
+          "max": 35.8,
+          "step": 0.1
+        }
+      },
+      "answer_formula": "(36.97 - a) / 2",
+      "precision": 3,
+      "unit": "",
+      "distractors": [
+        {
+          "formula": "(a - 34.97) / 2",
+          "error_type": "calculated_fractional_abundance_of_Cl37_instead_of_Cl35"
+        },
+        {
+          "formula": "(36.97 - a) / 36.97",
+          "error_type": "used_heavier_isotope_mass_as_denominator_instead_of_mass_difference"
+        },
+        {
+          "formula": "(36.97 - a) / 71.94",
+          "error_type": "used_sum_of_isotope_masses_as_denominator_instead_of_mass_difference"
+        }
+      ]
+    }
+  },
+  {
+    "subject": "AP Chemistry",
+    "unit": "Unit 1: Atomic Structure and Properties",
+    "unit_exam_weight_pct": 9,
+    "deck": "Elemental Composition of Pure Substances",
+    "type": "mc_numeric",
+    "difficulty": "medium",
+    "tags": [
+      "percent_composition",
+      "molar_mass"
+    ],
+    "source": "ced_generated",
+    "reviewed": false,
+    "visual": null,
+    "content": {
+      "stem": "A binary compound has the formula AB where A has a molar mass of {{a}} g/mol and B has a molar mass of {{b}} g/mol. What is the percent by mass of A in the compound?",
+      "params": {
+        "a": {
+          "min": 10,
+          "max": 25,
+          "step": 5
+        },
+        "b": {
+          "min": 50,
+          "max": 80,
+          "step": 10
+        }
+      },
+      "answer_formula": "a / (a + b) * 100",
+      "precision": 1,
+      "unit": "%",
+      "distractors": [
+        {
+          "formula": "b / (a + b) * 100",
+          "error_type": "calculated_percent_of_element_B_instead_of_A"
+        },
+        {
+          "formula": "a / b * 100",
+          "error_type": "used_molar_mass_of_B_alone_as_denominator_instead_of_total"
+        },
+        {
+          "formula": "(a + b) / a * 100",
+          "error_type": "inverted_the_ratio"
+        }
+      ]
+    }
+  },
+  {
+    "subject": "AP Chemistry",
+    "unit": "Unit 1: Atomic Structure and Properties",
+    "unit_exam_weight_pct": 9,
+    "deck": "Elemental Composition of Pure Substances",
+    "type": "mc_numeric",
+    "difficulty": "medium",
+    "tags": [
+      "percent_composition",
+      "molar_mass",
+      "stoichiometry"
+    ],
+    "source": "ced_generated",
+    "reviewed": false,
+    "visual": null,
+    "content": {
+      "stem": "A compound contains {{a}} moles of C atoms and 2 moles of O atoms per formula unit. What is the percent by mass of carbon in the compound? (Molar masses: C = 12.01 g/mol, O = 16.00 g/mol)",
+      "params": {
+        "a": {
+          "min": 1,
+          "max": 3,
+          "step": 1
+        }
+      },
+      "answer_formula": "(a * 12.01) / (a * 12.01 + 2 * 16.00) * 100",
+      "precision": 1,
+      "unit": "%",
+      "distractors": [
+        {
+          "formula": "(2 * 16.00) / (a * 12.01 + 2 * 16.00) * 100",
+          "error_type": "calculated_percent_of_oxygen_instead_of_carbon"
+        },
+        {
+          "formula": "(a * 12.01) / (a * 12.01 + 16.00) * 100",
+          "error_type": "forgot_coefficient_of_2_for_oxygen"
+        },
+        {
+          "formula": "a / (a + 2) * 100",
+          "error_type": "used_mole_ratio_instead_of_mass_ratio"
+        }
+      ]
+    }
+  },
+  {
+    "subject": "AP Chemistry",
+    "unit": "Unit 1: Atomic Structure and Properties",
+    "unit_exam_weight_pct": 9,
+    "deck": "Elemental Composition of Pure Substances",
+    "type": "mc_numeric",
+    "difficulty": "hard",
+    "tags": [
+      "percent_composition",
+      "mole_ratio",
+      "empirical_formula"
+    ],
+    "source": "ced_generated",
+    "reviewed": false,
+    "visual": null,
+    "content": {
+      "stem": "A compound contains {{a}}% by mass of element X (molar mass = 14.01 g/mol) and the remainder is element Y (molar mass = 16.00 g/mol). What is the mole ratio of X to Y in this compound?",
+      "params": {
+        "a": {
+          "min": 25,
+          "max": 45,
+          "step": 5
+        }
+      },
+      "answer_formula": "(a / 14.01) / ((100 - a) / 16.00)",
+      "precision": 2,
+      "unit": "mol X per mol Y",
+      "distractors": [
+        {
+          "formula": "(a / 16.00) / ((100 - a) / 14.01)",
+          "error_type": "swapped_molar_masses_of_the_two_elements"
+        },
+        {
+          "formula": "a / (100 - a)",
+          "error_type": "used_mass_percent_ratio_instead_of_mole_ratio"
+        },
+        {
+          "formula": "(100 - a) / a",
+          "error_type": "calculated_inverted_ratio_of_Y_to_X_instead_of_X_to_Y"
+        }
+      ]
+    }
+  },
+  {
+    "subject": "AP Chemistry",
+    "unit": "Unit 1: Atomic Structure and Properties",
+    "unit_exam_weight_pct": 9,
+    "deck": "Composition of Mixtures",
+    "type": "mc_numeric",
+    "difficulty": "medium",
+    "tags": [
+      "mass_percent",
+      "mixtures"
+    ],
+    "source": "ced_generated",
+    "reviewed": false,
+    "visual": null,
+    "content": {
+      "stem": "A mixture contains {{a}} grams of NaCl and {{b}} grams of KCl. What is the mass percent of NaCl in the mixture?",
+      "params": {
+        "a": {
+          "min": 10,
+          "max": 30,
+          "step": 5
+        },
+        "b": {
+          "min": 35,
+          "max": 65,
+          "step": 5
+        }
+      },
+      "answer_formula": "a / (a + b) * 100",
+      "precision": 1,
+      "unit": "%",
+      "distractors": [
+        {
+          "formula": "b / (a + b) * 100",
+          "error_type": "calculated_mass_percent_of_KCl_instead_of_NaCl"
+        },
+        {
+          "formula": "a / b * 100",
+          "error_type": "used_mass_of_KCl_alone_as_denominator"
+        },
+        {
+          "formula": "(a + b) / a * 100",
+          "error_type": "inverted_the_ratio"
+        }
+      ]
+    }
+  },
+  {
+    "subject": "AP Chemistry",
+    "unit": "Unit 1: Atomic Structure and Properties",
+    "unit_exam_weight_pct": 9,
+    "deck": "Composition of Mixtures",
+    "type": "mc_numeric",
+    "difficulty": "medium",
+    "tags": [
+      "mass_percent",
+      "mixtures",
+      "dimensional_analysis"
+    ],
+    "source": "ced_generated",
+    "reviewed": false,
+    "visual": null,
+    "content": {
+      "stem": "A mixture has a total mass of {{b}} grams. If the mixture is {{a}}% by mass NaCl, how many grams of NaCl are present?",
+      "params": {
+        "a": {
+          "min": 20,
+          "max": 60,
+          "step": 10
+        },
+        "b": {
+          "min": 50,
+          "max": 90,
+          "step": 20
+        }
+      },
+      "answer_formula": "a * b / 100",
+      "precision": 1,
+      "unit": "g",
+      "distractors": [
+        {
+          "formula": "b / a * 100",
+          "error_type": "inverted_and_incorrectly_multiplied_by_100"
+        },
+        {
+          "formula": "(a + b) / 100",
+          "error_type": "added_percent_and_total_mass_then_divided_by_100"
+        },
+        {
+          "formula": "a * b",
+          "error_type": "forgot_to_divide_by_100"
+        }
+      ]
+    }
+  },
+  {
+    "subject": "AP Chemistry",
+    "unit": "Unit 1: Atomic Structure and Properties",
+    "unit_exam_weight_pct": 9,
+    "deck": "Composition of Mixtures",
+    "type": "mc_numeric",
+    "difficulty": "easy",
+    "tags": [
+      "percent_purity",
+      "elemental_analysis",
+      "mixtures"
+    ],
+    "source": "ced_generated",
+    "reviewed": false,
+    "visual": null,
+    "content": {
+      "stem": "An impure sample of magnesium (Mg) with total mass {{b}} grams contains {{a}} grams of pure Mg. What is the percent purity of Mg in the sample?",
+      "params": {
+        "a": {
+          "min": 5,
+          "max": 20,
+          "step": 5
+        },
+        "b": {
+          "min": 50,
+          "max": 90,
+          "step": 10
+        }
+      },
+      "answer_formula": "a / b * 100",
+      "precision": 1,
+      "unit": "%",
+      "distractors": [
+        {
+          "formula": "(b - a) / b * 100",
+          "error_type": "calculated_percent_impurity_instead_of_percent_purity"
+        },
+        {
+          "formula": "b / a * 100",
+          "error_type": "inverted_the_ratio"
+        },
+        {
+          "formula": "a / (b - a) * 100",
+          "error_type": "used_mass_of_impurities_as_denominator_instead_of_total_mass"
+        }
+      ]
+    }
+  },
+  {
+    "subject": "AP Chemistry",
+    "unit": "Unit 1: Atomic Structure and Properties",
+    "unit_exam_weight_pct": 9,
+    "deck": "Moles and Molar Mass",
+    "type": "fr_static",
+    "difficulty": "easy",
+    "tags": [
+      "avogadro",
+      "mole_concept"
+    ],
+    "source": "ced_generated",
+    "reviewed": false,
+    "visual": null,
+    "content": {
+      "stem": "What name is given to the constant 6.022 × 10²³ mol⁻¹, which represents the number of constituent particles in exactly one mole of a substance?",
+      "accepted_answers": [
+        "avogadro's number",
+        "avogadro number",
+        "avogadro's constant",
+        "the avogadro constant"
+      ],
+      "semantic_fallback": true
+    }
+  },
+  {
+    "subject": "AP Chemistry",
+    "unit": "Unit 1: Atomic Structure and Properties",
+    "unit_exam_weight_pct": 9,
+    "deck": "Mass Spectra of Elements",
+    "type": "fr_static",
+    "difficulty": "easy",
+    "tags": [
+      "isotopes",
+      "mass_spectrometry"
+    ],
+    "source": "ced_generated",
+    "reviewed": false,
+    "visual": null,
+    "content": {
+      "stem": "What term describes atoms of the same element that have the same number of protons but different numbers of neutrons, and therefore different masses?",
+      "accepted_answers": [
+        "isotopes",
+        "isotope"
+      ],
+      "semantic_fallback": true
+    }
+  },
+  {
+    "subject": "AP Chemistry",
+    "unit": "Unit 1: Atomic Structure and Properties",
+    "unit_exam_weight_pct": 9,
+    "deck": "Elemental Composition of Pure Substances",
+    "type": "fr_static",
+    "difficulty": "medium",
+    "tags": [
+      "empirical_formula",
+      "percent_composition"
+    ],
+    "source": "ced_generated",
+    "reviewed": false,
+    "visual": null,
+    "content": {
+      "stem": "What is the name for the chemical formula that expresses the simplest whole-number ratio of atoms of each element in a compound?",
+      "accepted_answers": [
+        "empirical formula",
+        "simplest formula",
+        "simplest whole-number ratio formula"
+      ],
+      "semantic_fallback": true
+    }
+  },
+  {
+    "subject": "AP Chemistry",
+    "unit": "Unit 1: Atomic Structure and Properties",
+    "unit_exam_weight_pct": 9,
+    "deck": "Composition of Mixtures",
+    "type": "fr_static",
+    "difficulty": "medium",
+    "tags": [
+      "elemental_analysis",
+      "mixtures"
+    ],
+    "source": "ced_generated",
+    "reviewed": false,
+    "visual": null,
+    "content": {
+      "stem": "What type of analytical technique is used to determine the relative amounts of each element by mass in an unknown substance, and can be used to assess its purity?",
+      "accepted_answers": [
+        "elemental analysis",
+        "combustion analysis"
+      ],
+      "semantic_fallback": true
+    }
+  },
+  {
+    "subject": "AP Chemistry",
+    "unit": "Unit 1: Atomic Structure and Properties",
+    "unit_exam_weight_pct": 9,
+    "deck": "Atomic Structure and Electron Configuration",
+    "type": "fr_static",
+    "difficulty": "medium",
+    "tags": [
+      "valence_electrons",
+      "electron_configuration"
+    ],
+    "source": "ced_generated",
+    "reviewed": false,
+    "visual": null,
+    "content": {
+      "stem": "What term describes the electrons in an atom's outermost energy level that are primarily responsible for the atom's chemical bonding behavior?",
+      "accepted_answers": [
+        "valence electrons",
+        "outer electrons",
+        "outer shell electrons",
+        "outermost electrons"
+      ],
+      "semantic_fallback": true
+    }
+  },
+  {
+    "subject": "AP Chemistry",
+    "unit": "Unit 1: Atomic Structure and Properties",
+    "unit_exam_weight_pct": 9,
+    "deck": "Photoelectron Spectroscopy",
+    "type": "fr_static",
+    "difficulty": "medium",
+    "tags": [
+      "pes",
+      "electron_configuration",
+      "binding_energy"
+    ],
+    "source": "ced_generated",
+    "reviewed": false,
+    "visual": null,
+    "content": {
+      "stem": "What spectroscopic technique measures the binding energies of electrons in each subshell of an atom, producing a spectrum that can be used to verify or determine an atom's electron configuration?",
+      "accepted_answers": [
+        "photoelectron spectroscopy",
+        "pes",
+        "x-ray photoelectron spectroscopy",
+        "xps"
+      ],
+      "semantic_fallback": true
+    }
+  },
+  {
+    "subject": "AP Chemistry",
+    "unit": "Unit 1: Atomic Structure and Properties",
+    "unit_exam_weight_pct": 9,
+    "deck": "Periodic Trends",
+    "type": "fr_static",
+    "difficulty": "hard",
+    "tags": [
+      "effective_nuclear_charge",
+      "shielding",
+      "coulombs_law"
+    ],
+    "source": "ced_generated",
+    "reviewed": false,
+    "visual": null,
+    "content": {
+      "stem": "What concept, often abbreviated Z_eff, describes the net positive charge experienced by a valence electron after accounting for the shielding effects of core electrons?",
+      "accepted_answers": [
+        "effective nuclear charge",
+        "zeff",
+        "z effective",
+        "z_eff"
+      ],
+      "semantic_fallback": true
+    }
+  },
+  {
+    "subject": "AP Chemistry",
+    "unit": "Unit 1: Atomic Structure and Properties",
+    "unit_exam_weight_pct": 9,
+    "deck": "Valence Electrons and Ionic Compounds",
+    "type": "fr_static",
+    "difficulty": "hard",
+    "tags": [
+      "valence_electrons",
+      "ionic_charge",
+      "periodic_table"
+    ],
+    "source": "ced_generated",
+    "reviewed": false,
+    "visual": null,
+    "content": {
+      "stem": "According to the AP Chemistry curriculum, what property of an atom most directly determines its typical ionic charge when forming an ionic compound?",
+      "accepted_answers": [
+        "number of valence electrons",
+        "valence electrons",
+        "the number of valence electrons"
+      ],
+      "semantic_fallback": true
+    }
+  },
+  {
+    "subject": "AP Chemistry",
+    "unit": "Unit 1: Atomic Structure and Properties",
+    "unit_exam_weight_pct": 9,
+    "deck": "Mass Spectra of Elements",
+    "type": "fr_numeric",
+    "difficulty": "easy",
+    "tags": [
+      "average_atomic_mass",
+      "isotopes",
+      "weighted_average"
+    ],
+    "source": "ced_generated",
+    "reviewed": false,
+    "visual": null,
+    "content": {
+      "stem": "Element X has two naturally occurring isotopes: Isotope A with a mass of 63.00 amu and {{a}}% natural abundance, and Isotope B with a mass of 65.00 amu with the remaining natural abundance. Calculate the average atomic mass of element X in amu.",
+      "params": {
+        "a": {
+          "min": 55,
+          "max": 75,
+          "step": 5
+        }
+      },
+      "answer_formula": "63.00 * a / 100 + 65.00 * (1 - a / 100)",
+      "precision": 2,
+      "unit": "amu",
+      "tolerance": 0.02,
+      "semantic_fallback": false
+    }
+  },
+  {
+    "subject": "AP Chemistry",
+    "unit": "Unit 1: Atomic Structure and Properties",
+    "unit_exam_weight_pct": 9,
+    "deck": "Elemental Composition of Pure Substances",
+    "type": "fr_numeric",
+    "difficulty": "easy",
+    "tags": [
+      "percent_composition",
+      "molar_mass"
+    ],
+    "source": "ced_generated",
+    "reviewed": false,
+    "visual": null,
+    "content": {
+      "stem": "A compound contains {{a}} grams of carbon (C) and {{b}} grams of hydrogen (H) and no other elements. Calculate the percent by mass of carbon in this compound.",
+      "params": {
+        "a": {
+          "min": 12,
+          "max": 60,
+          "step": 12
+        },
+        "b": {
+          "min": 1,
+          "max": 5,
+          "step": 1
+        }
+      },
+      "answer_formula": "a / (a + b) * 100",
+      "precision": 1,
+      "unit": "%",
+      "tolerance": 0.05,
+      "semantic_fallback": false
+    }
+  },
+  {
+    "subject": "AP Chemistry",
+    "unit": "Unit 1: Atomic Structure and Properties",
+    "unit_exam_weight_pct": 9,
+    "deck": "Coulomb's Law and Atomic Structure",
+    "type": "mc_static",
+    "difficulty": "easy",
+    "tags": [
+      "coulombs_law",
+      "electrostatic_force",
+      "atomic_structure"
+    ],
+    "source": "ced_generated",
+    "reviewed": false,
+    "visual": null,
+    "content": {
+      "stem": "According to Coulomb's law as applied to atomic structure, how does the attractive force between the nucleus and an electron change as the distance between them increases?",
+      "options": [
+        "The attractive force decreases because force is inversely proportional to the square of the distance.",
+        "The attractive force increases because the electron gains potential energy at larger distances.",
+        "The attractive force remains constant regardless of distance.",
+        "The attractive force decreases linearly with distance."
+      ],
+      "correct_index": 0
+    }
+  },
+  {
+    "subject": "AP Chemistry",
+    "unit": "Unit 1: Atomic Structure and Properties",
+    "unit_exam_weight_pct": 9,
+    "deck": "Coulomb's Law and Atomic Structure",
+    "type": "mc_static",
+    "difficulty": "medium",
+    "tags": [
+      "coulombs_law",
+      "ionization_energy",
+      "nuclear_charge"
+    ],
+    "source": "ced_generated",
+    "reviewed": false,
+    "visual": null,
+    "content": {
+      "stem": "Which of the following correctly uses Coulomb's law to explain why the first ionization energy of Mg²⁺ is much larger than the first ionization energy of neutral Mg?",
+      "options": [
+        "Mg²⁺ has the same number of protons as Mg but fewer electrons, so each remaining electron is held more tightly by a greater net positive charge.",
+        "Mg²⁺ has more protons than Mg, which increases the force on the outer electrons.",
+        "Mg²⁺ has more electron–electron repulsions than Mg, which raises the ionization energy.",
+        "Mg²⁺ has a larger atomic radius than Mg, placing the outer electron farther from the nucleus."
+      ],
+      "correct_index": 0
+    }
+  },
+  {
+    "subject": "AP Chemistry",
+    "unit": "Unit 1: Atomic Structure and Properties",
+    "unit_exam_weight_pct": 9,
+    "deck": "Coulomb's Law and Atomic Structure",
+    "type": "mc_static",
+    "difficulty": "medium",
+    "tags": [
+      "coulombs_law",
+      "ionic_bonding",
+      "lattice_energy"
+    ],
+    "source": "ced_generated",
+    "reviewed": false,
+    "visual": null,
+    "content": {
+      "stem": "Two ionic compounds, MgO and NaF, have the same crystal structure. Using Coulomb's law, which compound is predicted to have the stronger interionic attractions, and why?",
+      "options": [
+        "MgO, because Mg²⁺ and O²⁻ have charges of ±2, producing a larger product of charges than Na⁺ and F⁻ with charges of ±1.",
+        "NaF, because Na⁺ and F⁻ are smaller ions that pack more closely together.",
+        "MgO, because magnesium has a higher atomic mass than sodium.",
+        "NaF, because fluorine is the most electronegative element."
+      ],
+      "correct_index": 0
+    }
+  },
+  {
+    "subject": "AP Chemistry",
+    "unit": "Unit 1: Atomic Structure and Properties",
+    "unit_exam_weight_pct": 9,
+    "deck": "Shielding and Effective Nuclear Charge",
+    "type": "mc_static",
+    "difficulty": "easy",
+    "tags": [
+      "shielding",
+      "effective_nuclear_charge",
+      "core_electrons"
+    ],
+    "source": "ced_generated",
+    "reviewed": false,
+    "visual": null,
+    "content": {
+      "stem": "What is the primary role of core electrons in determining the effective nuclear charge (Z_eff) experienced by valence electrons?",
+      "options": [
+        "Core electrons shield valence electrons from the full nuclear charge, reducing the net attraction the valence electrons experience.",
+        "Core electrons increase the nuclear charge, making valence electrons harder to remove.",
+        "Core electrons are repelled by the nucleus and push valence electrons further from the atom.",
+        "Core electrons have no effect on valence electrons because they occupy different subshells."
+      ],
+      "correct_index": 0
+    }
+  },
+  {
+    "subject": "AP Chemistry",
+    "unit": "Unit 1: Atomic Structure and Properties",
+    "unit_exam_weight_pct": 9,
+    "deck": "Shielding and Effective Nuclear Charge",
+    "type": "mc_static",
+    "difficulty": "medium",
+    "tags": [
+      "effective_nuclear_charge",
+      "periodic_trends",
+      "shielding"
+    ],
+    "source": "ced_generated",
+    "reviewed": false,
+    "visual": null,
+    "content": {
+      "stem": "Moving across Period 3 from sodium (Na) to chlorine (Cl), which of the following best explains why atomic radius decreases?",
+      "options": [
+        "The number of protons increases while the number of electron shells stays the same, so valence electrons experience a greater effective nuclear charge and are pulled closer to the nucleus.",
+        "The number of electron shells increases, pulling valence electrons closer to the nucleus.",
+        "The atomic mass increases across the period, compressing the electron cloud.",
+        "Shielding increases across Period 3, reducing the pull on valence electrons and contracting the atom."
+      ],
+      "correct_index": 0
+    }
+  },
+  {
+    "subject": "AP Chemistry",
+    "unit": "Unit 1: Atomic Structure and Properties",
+    "unit_exam_weight_pct": 9,
+    "deck": "Shielding and Effective Nuclear Charge",
+    "type": "mc_static",
+    "difficulty": "hard",
+    "tags": [
+      "effective_nuclear_charge",
+      "ionization_energy",
+      "shielding",
+      "coulombs_law"
+    ],
+    "source": "ced_generated",
+    "reviewed": false,
+    "visual": null,
+    "content": {
+      "stem": "Sodium (Na, Z = 11) and magnesium (Mg, Z = 12) both have valence electrons in the 3s subshell. Which of the following best explains why Mg has a significantly higher first ionization energy than Na?",
+      "options": [
+        "Mg has one more proton than Na, increasing Z_eff experienced by the 3s electrons because the added electron provides minimal additional shielding from within the same subshell.",
+        "Mg has two valence electrons, which repel each other and make both harder to remove.",
+        "Mg's 3s electrons are shielded by the 2p electrons more effectively than Na's 3s electron.",
+        "Mg has a smaller nuclear radius than Na, which concentrates the nuclear charge and raises ionization energy."
+      ],
+      "correct_index": 0
+    }
+  },
+  {
+    "subject": "AP Chemistry",
+    "unit": "Unit 1: Atomic Structure and Properties",
+    "unit_exam_weight_pct": 9,
+    "deck": "Electron Configuration (Advanced)",
+    "type": "mc_static",
+    "difficulty": "easy",
+    "tags": [
+      "electron_configuration",
+      "ions",
+      "aufbau_principle"
+    ],
+    "source": "ced_generated",
+    "reviewed": false,
+    "visual": null,
+    "content": {
+      "stem": "What is the ground-state electron configuration of the Fe²⁺ ion? (Fe, Z = 26)",
+      "options": [
+        "[Ar]3d⁶",
+        "[Ar]3d⁴4s²",
+        "[Ar]3d⁵4s¹",
+        "[Ar]3d⁶4s²"
+      ],
+      "correct_index": 0
+    }
+  },
+  {
+    "subject": "AP Chemistry",
+    "unit": "Unit 1: Atomic Structure and Properties",
+    "unit_exam_weight_pct": 9,
+    "deck": "Electron Configuration (Advanced)",
+    "type": "mc_static",
+    "difficulty": "medium",
+    "tags": [
+      "electron_configuration",
+      "subshell_order",
+      "periodic_table"
+    ],
+    "source": "ced_generated",
+    "reviewed": false,
+    "visual": null,
+    "content": {
+      "stem": "How many total electrons are in the d subshells of a neutral nickel (Ni, Z = 28) atom in its ground state?",
+      "options": [
+        "8",
+        "10",
+        "6",
+        "2"
+      ],
+      "correct_index": 0
+    }
+  },
+  {
+    "subject": "AP Chemistry",
+    "unit": "Unit 1: Atomic Structure and Properties",
+    "unit_exam_weight_pct": 9,
+    "deck": "Electron Configuration (Advanced)",
+    "type": "mc_static",
+    "difficulty": "hard",
+    "tags": [
+      "electron_configuration",
+      "ions",
+      "transition_metals"
+    ],
+    "source": "ced_generated",
+    "reviewed": false,
+    "visual": null,
+    "content": {
+      "stem": "When transition metal atoms form cations, electrons are lost from the 4s subshell before the 3d subshell. What ground-state electron configuration is expected for Cr³⁺? (Cr, Z = 24)",
+      "options": [
+        "[Ar]3d³",
+        "[Ar]3d²4s¹",
+        "[Ar]3d¹4s²",
+        "[Ar]3d³4s²"
+      ],
+      "correct_index": 0
+    }
+  },
+  {
+    "subject": "AP Chemistry",
+    "unit": "Unit 1: Atomic Structure and Properties",
+    "unit_exam_weight_pct": 9,
+    "deck": "Photoelectron Spectroscopy (Advanced)",
+    "type": "mc_static",
+    "difficulty": "easy",
+    "tags": [
+      "pes",
+      "binding_energy",
+      "subshell",
+      "coulombs_law"
+    ],
+    "source": "ced_generated",
+    "reviewed": false,
+    "visual": null,
+    "content": {
+      "stem": "In a photoelectron spectrum, electrons in the 1s subshell appear at much higher binding energy than electrons in the 2s subshell of the same atom. Which of the following best explains this observation?",
+      "options": [
+        "1s electrons are much closer to the nucleus and experience a much stronger attractive force per Coulomb's law.",
+        "1s electrons have higher kinetic energy than 2s electrons after being ejected.",
+        "The 1s subshell holds more electrons than the 2s subshell.",
+        "1s electrons are more effectively shielded from the nucleus than 2s electrons."
+      ],
+      "correct_index": 0
+    }
+  },
+  {
+    "subject": "AP Chemistry",
+    "unit": "Unit 1: Atomic Structure and Properties",
+    "unit_exam_weight_pct": 9,
+    "deck": "Photoelectron Spectroscopy (Advanced)",
+    "type": "mc_static",
+    "difficulty": "medium",
+    "tags": [
+      "pes",
+      "electron_configuration",
+      "peak_analysis"
+    ],
+    "source": "ced_generated",
+    "reviewed": false,
+    "visual": null,
+    "content": {
+      "stem": "A PES spectrum of an unknown second-period element shows three peaks. The peak at highest binding energy has a relative height of 2, the middle peak has a relative height of 2, and the peak at lowest binding energy has a relative height of 3. Which element is most consistent with this spectrum?",
+      "options": [
+        "Nitrogen (N)",
+        "Carbon (C)",
+        "Oxygen (O)",
+        "Beryllium (Be)"
+      ],
+      "correct_index": 0
+    }
+  },
+  {
+    "subject": "AP Chemistry",
+    "unit": "Unit 1: Atomic Structure and Properties",
+    "unit_exam_weight_pct": 9,
+    "deck": "Photoelectron Spectroscopy (Advanced)",
+    "type": "mc_static",
+    "difficulty": "hard",
+    "tags": [
+      "pes",
+      "element_identification",
+      "electron_configuration",
+      "binding_energy"
+    ],
+    "source": "ced_generated",
+    "reviewed": false,
+    "visual": null,
+    "content": {
+      "stem": "Moving from carbon (C) to silicon (Si) in the same group, the 1s peak in the PES spectrum shifts to higher binding energy. Which of the following best explains this observation?",
+      "options": [
+        "Silicon has more protons (Z = 14) than carbon (Z = 6), so the 1s electrons of silicon experience a greater nuclear charge and are held more tightly.",
+        "Silicon's 1s electrons are farther from the nucleus because of additional electron shells, increasing their binding energy.",
+        "Silicon has more core electrons than carbon, which increases shielding and raises the binding energy of the 1s electrons.",
+        "The mass of silicon's nucleus is greater, which slows the ejected 1s electron and produces a higher apparent binding energy."
+      ],
+      "correct_index": 0
+    }
+  },
+  {
+    "subject": "AP Chemistry",
+    "unit": "Unit 1: Atomic Structure and Properties",
+    "unit_exam_weight_pct": 9,
+    "deck": "Atomic and Ionic Radius Trends",
+    "type": "mc_static",
+    "difficulty": "easy",
+    "tags": [
+      "atomic_radius",
+      "periodic_trends",
+      "isoelectronic"
+    ],
+    "source": "ced_generated",
+    "reviewed": false,
+    "visual": null,
+    "content": {
+      "stem": "Which of the following correctly ranks the species Na, Na⁺, and Mg²⁺ in order of increasing radius (smallest to largest)?",
+      "options": [
+        "Mg²⁺ < Na⁺ < Na",
+        "Na < Na⁺ < Mg²⁺",
+        "Na⁺ < Mg²⁺ < Na",
+        "Na < Mg²⁺ < Na⁺"
+      ],
+      "correct_index": 0
+    }
+  },
+  {
+    "subject": "AP Chemistry",
+    "unit": "Unit 1: Atomic Structure and Properties",
+    "unit_exam_weight_pct": 9,
+    "deck": "Atomic and Ionic Radius Trends",
+    "type": "mc_static",
+    "difficulty": "medium",
+    "tags": [
+      "ionic_radius",
+      "isoelectronic",
+      "coulombs_law"
+    ],
+    "source": "ced_generated",
+    "reviewed": false,
+    "visual": null,
+    "content": {
+      "stem": "The ions O²⁻, F⁻, Na⁺, and Mg²⁺ are isoelectronic (all have 10 electrons). Which ion has the smallest radius?",
+      "options": [
+        "Mg²⁺",
+        "O²⁻",
+        "Na⁺",
+        "F⁻"
+      ],
+      "correct_index": 0
+    }
+  },
+  {
+    "subject": "AP Chemistry",
+    "unit": "Unit 1: Atomic Structure and Properties",
+    "unit_exam_weight_pct": 9,
+    "deck": "Atomic and Ionic Radius Trends",
+    "type": "mc_static",
+    "difficulty": "medium",
+    "tags": [
+      "atomic_radius",
+      "cation_vs_atom",
+      "ionic_radius"
+    ],
+    "source": "ced_generated",
+    "reviewed": false,
+    "visual": null,
+    "content": {
+      "stem": "Which of the following correctly explains why a cation is smaller than its parent neutral atom?",
+      "options": [
+        "Removing electrons reduces electron–electron repulsion and the remaining electrons are pulled more strongly toward the nucleus, decreasing the ionic radius.",
+        "Removing electrons adds protons to the nucleus, increasing the nuclear charge and shrinking the ion.",
+        "Cations form when the atom gains electrons, which are added to inner shells and compress the atom.",
+        "The nuclear charge decreases when a cation forms, allowing the remaining electrons to collapse inward."
+      ],
+      "correct_index": 0
+    }
+  },
+  {
+    "subject": "AP Chemistry",
+    "unit": "Unit 1: Atomic Structure and Properties",
+    "unit_exam_weight_pct": 9,
+    "deck": "Ionization Energy (Successive)",
+    "type": "mc_static",
+    "difficulty": "medium",
+    "tags": [
+      "successive_ionization_energy",
+      "electron_configuration",
+      "shell_model"
+    ],
+    "source": "ced_generated",
+    "reviewed": false,
+    "visual": null,
+    "content": {
+      "stem": "The successive ionization energies (IE₁ through IE₅) of an unknown element are: 738, 1451, 7733, 10,540, and 13,630 kJ/mol. After which ionization does a dramatic increase in ionization energy first occur, and what does this indicate about the element?",
+      "options": [
+        "After IE₂; the element has 2 valence electrons, indicating it is in Group 2 (e.g., magnesium).",
+        "After IE₁; the element has 1 valence electron, indicating it is in Group 1.",
+        "After IE₃; the element has 3 valence electrons, indicating it is in Group 13.",
+        "After IE₄; the element has 4 valence electrons, indicating it is in Group 14."
+      ],
+      "correct_index": 0
+    }
+  },
+  {
+    "subject": "AP Chemistry",
+    "unit": "Unit 1: Atomic Structure and Properties",
+    "unit_exam_weight_pct": 9,
+    "deck": "Ionization Energy (Successive)",
+    "type": "mc_static",
+    "difficulty": "hard",
+    "tags": [
+      "successive_ionization_energy",
+      "core_electrons",
+      "shell_model"
+    ],
+    "source": "ced_generated",
+    "reviewed": false,
+    "visual": null,
+    "content": {
+      "stem": "Why does the ionization energy always increase for each successive electron removed from the same atom?",
+      "options": [
+        "Each successive removal leaves fewer electrons to shield the remaining ones from the nuclear charge, so each subsequent electron experiences a higher effective nuclear charge and requires more energy to remove.",
+        "Each successive removal adds a proton to the nucleus, increasing the nuclear charge.",
+        "Electrons removed later are in higher-energy subshells that are farther from the nucleus.",
+        "Removing electrons increases the size of the ion, but more energy is required to work against the larger volume."
+      ],
+      "correct_index": 0
+    }
+  },
+  {
+    "subject": "AP Chemistry",
+    "unit": "Unit 1: Atomic Structure and Properties",
+    "unit_exam_weight_pct": 9,
+    "deck": "Electron Affinity and Electronegativity",
+    "type": "mc_static",
+    "difficulty": "easy",
+    "tags": [
+      "electron_affinity",
+      "periodic_trends"
+    ],
+    "source": "ced_generated",
+    "reviewed": false,
+    "visual": null,
+    "content": {
+      "stem": "Which of the following best describes the general trend in electron affinity across a period from left to right?",
+      "options": [
+        "Electron affinity generally becomes more negative (more energy released) because increasing nuclear charge pulls added electrons more strongly.",
+        "Electron affinity generally becomes more positive (less energy released) because repulsion from existing electrons increases.",
+        "Electron affinity remains essentially constant across a period.",
+        "Electron affinity first increases then decreases symmetrically across each period."
+      ],
+      "correct_index": 0
+    }
+  },
+  {
+    "subject": "AP Chemistry",
+    "unit": "Unit 1: Atomic Structure and Properties",
+    "unit_exam_weight_pct": 9,
+    "deck": "Electron Affinity and Electronegativity",
+    "type": "mc_static",
+    "difficulty": "medium",
+    "tags": [
+      "electronegativity",
+      "periodic_trends",
+      "coulombs_law",
+      "shell_model"
+    ],
+    "source": "ced_generated",
+    "reviewed": false,
+    "visual": null,
+    "content": {
+      "stem": "Which of the following pairs correctly lists the more electronegative element first and gives the best explanation for this ordering?",
+      "options": [
+        "F > Cs; fluorine is in Period 2 with a very high Z_eff and small atomic radius, so it attracts bonding electrons far more strongly than cesium, which has a low Z_eff and a large atomic radius.",
+        "Cs > F; cesium has more protons than fluorine, so it exerts a stronger pull on bonding electrons.",
+        "F > Cs; fluorine has fewer protons than cesium, so its nucleus does not repel electrons as strongly.",
+        "Cs > F; cesium's valence electrons are farther from the nucleus and are therefore more easily attracted to bonding partners."
+      ],
+      "correct_index": 0
+    }
+  },
+  {
+    "subject": "AP Chemistry",
+    "unit": "Unit 1: Atomic Structure and Properties",
+    "unit_exam_weight_pct": 9,
+    "deck": "Electron Affinity and Electronegativity",
+    "type": "mc_static",
+    "difficulty": "hard",
+    "tags": [
+      "electron_affinity",
+      "electronegativity",
+      "periodic_trends",
+      "exceptions"
+    ],
+    "source": "ced_generated",
+    "reviewed": false,
+    "visual": null,
+    "content": {
+      "stem": "The electron affinity of fluorine (−328 kJ/mol) is less negative than that of chlorine (−349 kJ/mol), even though fluorine is more electronegative. Which explanation is most consistent with the shell model and Coulomb's law?",
+      "options": [
+        "Fluorine's 2p subshell is very compact, so adding a second electron causes significant electron–electron repulsion in a small volume, partially offsetting the strong nuclear attraction.",
+        "Chlorine has more core electrons, which shield the nuclear charge and allow the added electron to enter more easily.",
+        "Fluorine's high electronegativity means it already holds its electrons very tightly, leaving no room for an additional electron.",
+        "Chlorine has a lower nuclear charge than fluorine, so there is less repulsion when an electron is added."
+      ],
+      "correct_index": 0
+    }
+  },
+  {
+    "subject": "AP Chemistry",
+    "unit": "Unit 1: Atomic Structure and Properties",
+    "unit_exam_weight_pct": 9,
+    "deck": "Coulomb's Law and Atomic Structure",
+    "type": "mc_numeric",
+    "difficulty": "easy",
+    "tags": [
+      "coulombs_law",
+      "electrostatic_force",
+      "charge"
+    ],
+    "source": "ced_generated",
+    "reviewed": false,
+    "visual": null,
+    "content": {
+      "stem": "According to Coulomb's law, the force between two charged particles is proportional to q₁ × q₂ / r². If the charge on one particle is doubled (multiplied by {{a}}) while the distance between them is held constant, by what factor does the force change?",
+      "params": {
+        "a": {
+          "min": 2,
+          "max": 5,
+          "step": 1
+        }
+      },
+      "answer_formula": "a",
+      "precision": 1,
+      "unit": "× original force",
+      "distractors": [
+        {
+          "formula": "a * a",
+          "error_type": "squared_the_charge_factor_instead_of_using_it_linearly"
+        },
+        {
+          "formula": "a / 2",
+          "error_type": "halved_the_factor_incorrectly"
+        },
+        {
+          "formula": "1 / a",
+          "error_type": "inverted_the_relationship"
+        }
+      ]
+    }
+  },
+  {
+    "subject": "AP Chemistry",
+    "unit": "Unit 1: Atomic Structure and Properties",
+    "unit_exam_weight_pct": 9,
+    "deck": "Coulomb's Law and Atomic Structure",
+    "type": "mc_numeric",
+    "difficulty": "medium",
+    "tags": [
+      "coulombs_law",
+      "force_distance_relationship"
+    ],
+    "source": "ced_generated",
+    "reviewed": false,
+    "visual": null,
+    "content": {
+      "stem": "The electrostatic force between two charged particles is F at distance r. If the distance is increased by a factor of {{a}} (i.e., new distance = {{a}} × r), by what factor does the force change? Express your answer as a fraction (new force / original force).",
+      "params": {
+        "a": {
+          "min": 2,
+          "max": 5,
+          "step": 1
+        }
+      },
+      "answer_formula": "1 / (a * a)",
+      "precision": 3,
+      "unit": "× original force",
+      "distractors": [
+        {
+          "formula": "1 / a",
+          "error_type": "used_linear_inverse_instead_of_inverse_square"
+        },
+        {
+          "formula": "a * a",
+          "error_type": "multiplied_instead_of_divided_by_squared_factor"
+        },
+        {
+          "formula": "1 / (a * a * a)",
+          "error_type": "used_inverse_cube_instead_of_inverse_square"
+        }
+      ]
+    }
+  },
+  {
+    "subject": "AP Chemistry",
+    "unit": "Unit 1: Atomic Structure and Properties",
+    "unit_exam_weight_pct": 9,
+    "deck": "Shielding and Effective Nuclear Charge",
+    "type": "mc_numeric",
+    "difficulty": "easy",
+    "tags": [
+      "effective_nuclear_charge",
+      "shielding",
+      "electron_configuration"
+    ],
+    "source": "ced_generated",
+    "reviewed": false,
+    "visual": null,
+    "content": {
+      "stem": "A simplified model estimates Z_eff ≈ Z − S, where Z is the atomic number and S is the number of core (inner-shell) electrons acting as shields. For an element with atomic number {{a}} and {{b}} core electrons, what is the estimated Z_eff experienced by the valence electrons?",
+      "params": {
+        "a": {
+          "min": 11,
+          "max": 18,
+          "step": 1
+        },
+        "b": {
+          "min": 2,
+          "max": 10,
+          "step": 2
+        }
+      },
+      "answer_formula": "a - b",
+      "precision": 0,
+      "unit": "",
+      "distractors": [
+        {
+          "formula": "a + b",
+          "error_type": "added_core_electrons_instead_of_subtracting"
+        },
+        {
+          "formula": "b - a",
+          "error_type": "subtracted_atomic_number_from_core_electrons"
+        },
+        {
+          "formula": "a * b",
+          "error_type": "multiplied_atomic_number_by_core_electrons_instead_of_subtracting"
+        }
+      ]
+    }
+  },
+  {
+    "subject": "AP Chemistry",
+    "unit": "Unit 1: Atomic Structure and Properties",
+    "unit_exam_weight_pct": 9,
+    "deck": "Photoelectron Spectroscopy (Advanced)",
+    "type": "mc_numeric",
+    "difficulty": "medium",
+    "tags": [
+      "pes",
+      "electron_count",
+      "peak_height_ratio"
+    ],
+    "source": "ced_generated",
+    "reviewed": false,
+    "visual": null,
+    "content": {
+      "stem": "In a PES spectrum, the 2s peak and 2p peak heights are in the ratio 1 : {{a}} (2s : 2p). Given that the 2s subshell always holds 2 electrons, how many electrons does the 2p subshell contain for this atom?",
+      "params": {
+        "a": {
+          "min": 1,
+          "max": 3,
+          "step": 1
+        }
+      },
+      "answer_formula": "2 * a",
+      "precision": 0,
+      "unit": "electrons",
+      "distractors": [
+        {
+          "formula": "3 * a",
+          "error_type": "tripled_ratio_instead_of_doubling_relative_to_2s_count"
+        },
+        {
+          "formula": "6 / a",
+          "error_type": "divided_max_2p_capacity_by_ratio_giving_wrong_electron_count"
+        },
+        {
+          "formula": "a * 4",
+          "error_type": "multiplied_ratio_by_4_confusing_orbital_count_with_reference_subshell_electron_count"
+        }
+      ]
+    }
+  },
+  {
+    "subject": "AP Chemistry",
+    "unit": "Unit 1: Atomic Structure and Properties",
+    "unit_exam_weight_pct": 9,
+    "deck": "Ionization Energy (Successive)",
+    "type": "mc_numeric",
+    "difficulty": "medium",
+    "tags": [
+      "ionization_energy",
+      "electron_configuration",
+      "group_identification"
+    ],
+    "source": "ced_generated",
+    "reviewed": false,
+    "visual": null,
+    "content": {
+      "stem": "An element has {{a}} valence electrons, and the ratio of its (n+1)th to nth successive ionization energy shows a dramatic jump after removing all valence electrons. If the first ionization energy is X, a student expects the next large jump at ionization number {{a}} + 1. How many valence electrons does this element have according to this data?",
+      "params": {
+        "a": {
+          "min": 1,
+          "max": 4,
+          "step": 1
+        }
+      },
+      "answer_formula": "a",
+      "precision": 0,
+      "unit": "valence electrons",
+      "distractors": [
+        {
+          "formula": "a + 1",
+          "error_type": "counted_one_extra_valence_electron_misreading_the_jump_position"
+        },
+        {
+          "formula": "a - 1",
+          "error_type": "undercounted_by_one_valence_electron"
+        },
+        {
+          "formula": "a + 2",
+          "error_type": "misread_the_jump_as_occurring_two_steps_beyond_the_last_valence_electron"
+        }
+      ]
+    }
+  },
+  {
+    "subject": "AP Chemistry",
+    "unit": "Unit 1: Atomic Structure and Properties",
+    "unit_exam_weight_pct": 9,
+    "deck": "Atomic and Ionic Radius Trends",
+    "type": "mc_numeric",
+    "difficulty": "medium",
+    "tags": [
+      "atomic_radius",
+      "group_trend",
+      "shell_model"
+    ],
+    "source": "ced_generated",
+    "reviewed": false,
+    "visual": null,
+    "content": {
+      "stem": "The atomic radii of the alkali metals increase going down Group 1. If Li has radius r₀ and each successive element adds approximately {{a}} pm to the radius, what would be the expected radius of the 4th alkali metal (K) relative to Li? Express as r₀ + Δ, where Δ = the total increase.",
+      "params": {
+        "a": {
+          "min": 60,
+          "max": 100,
+          "step": 10
+        }
+      },
+      "answer_formula": "3 * a",
+      "precision": 0,
+      "unit": "pm (added to r₀)",
+      "distractors": [
+        {
+          "formula": "4 * a",
+          "error_type": "used_4_steps_instead_of_3_steps_below_Li"
+        },
+        {
+          "formula": "2 * a",
+          "error_type": "used_2_steps_instead_of_3_steps_below_Li"
+        },
+        {
+          "formula": "a",
+          "error_type": "used_only_one_step_of_increase"
+        }
+      ]
+    }
+  },
+  {
+    "subject": "AP Chemistry",
+    "unit": "Unit 1: Atomic Structure and Properties",
+    "unit_exam_weight_pct": 9,
+    "deck": "Electron Configuration (Advanced)",
+    "type": "mc_numeric",
+    "difficulty": "easy",
+    "tags": [
+      "electron_configuration",
+      "valence_electrons",
+      "periodic_table"
+    ],
+    "source": "ced_generated",
+    "reviewed": false,
+    "visual": null,
+    "content": {
+      "stem": "An element is in Period 3 and Group {{a}} of the periodic table (where Group numbers 1–18 apply; consider only main-group elements 1–2 and 13–18). How many valence electrons does a neutral atom of this element have?",
+      "params": {
+        "a": {
+          "min": 1,
+          "max": 2,
+          "step": 1
+        }
+      },
+      "answer_formula": "a",
+      "precision": 0,
+      "unit": "valence electrons",
+      "distractors": [
+        {
+          "formula": "a + 8",
+          "error_type": "added_8_to_group_number_for_main_group_elements_incorrectly"
+        },
+        {
+          "formula": "8 - a",
+          "error_type": "subtracted_group_from_8_giving_wrong_valence_count"
+        },
+        {
+          "formula": "a * 2",
+          "error_type": "doubled_group_number_instead_of_using_it_directly"
+        }
+      ]
+    }
+  },
+  {
+    "subject": "AP Chemistry",
+    "unit": "Unit 1: Atomic Structure and Properties",
+    "unit_exam_weight_pct": 9,
+    "deck": "Electron Configuration (Advanced)",
+    "type": "mc_numeric",
+    "difficulty": "medium",
+    "tags": [
+      "electron_configuration",
+      "subshell_capacity",
+      "orbital_filling"
+    ],
+    "source": "ced_generated",
+    "reviewed": false,
+    "visual": null,
+    "content": {
+      "stem": "A neutral transition metal has the ground-state electron configuration [Ar]4s²3d^{{a}}. The argon core ([Ar]) contains 18 electrons. How many total electrons does this atom have?",
+      "params": {
+        "a": {
+          "min": 1,
+          "max": 10,
+          "step": 1
+        }
+      },
+      "answer_formula": "20 + a",
+      "precision": 0,
+      "unit": "electrons",
+      "distractors": [
+        {
+          "formula": "18 + a",
+          "error_type": "forgot_to_include_the_4s2_electrons_when_adding_to_the_argon_core"
+        },
+        {
+          "formula": "10 + a",
+          "error_type": "used_neon_core_count_instead_of_argon_core_for_inner_electrons"
+        },
+        {
+          "formula": "a + 2",
+          "error_type": "counted_only_3d_and_4s2_electrons_omitting_the_argon_core_entirely"
+        }
+      ]
+    }
+  },
+  {
+    "subject": "AP Chemistry",
+    "unit": "Unit 1: Atomic Structure and Properties",
+    "unit_exam_weight_pct": 9,
+    "deck": "Electron Affinity and Electronegativity",
+    "type": "mc_numeric",
+    "difficulty": "hard",
+    "tags": [
+      "electronegativity",
+      "bond_dipole",
+      "periodic_trends"
+    ],
+    "source": "ced_generated",
+    "reviewed": false,
+    "visual": null,
+    "content": {
+      "stem": "The electronegativity difference between two bonded atoms A and B is {{a}} units. A second bond between atoms C and D has an electronegativity difference of {{b}} units (where {{b}} > {{a}}). Which bond has the greater ionic character?",
+      "params": {
+        "a": {
+          "min": 0.5,
+          "max": 1.5,
+          "step": 0.5
+        },
+        "b": {
+          "min": 2,
+          "max": 3.5,
+          "step": 0.5
+        }
+      },
+      "answer_formula": "b",
+      "precision": 1,
+      "unit": "units (electronegativity difference of the more ionic bond)",
+      "distractors": [
+        {
+          "formula": "a",
+          "error_type": "chose_bond_with_smaller_electronegativity_difference"
+        },
+        {
+          "formula": "b + a",
+          "error_type": "summed_the_two_electronegativity_differences_instead_of_identifying_the_larger"
+        },
+        {
+          "formula": "(a + b) / 2",
+          "error_type": "averaged_the_two_differences_instead_of_identifying_the_larger"
+        }
+      ]
+    }
+  },
+  {
+    "subject": "AP Chemistry",
+    "unit": "Unit 1: Atomic Structure and Properties",
+    "unit_exam_weight_pct": 9,
+    "deck": "Ionization Energy (Successive)",
+    "type": "mc_numeric",
+    "difficulty": "hard",
+    "tags": [
+      "ionization_energy",
+      "energy_ratio",
+      "shell_model"
+    ],
+    "source": "ced_generated",
+    "reviewed": false,
+    "visual": null,
+    "content": {
+      "stem": "An element's 2nd ionization energy is {{a}} kJ/mol and its 3rd ionization energy is {{b}} kJ/mol. What is the ratio IE₃ / IE₂ for this element? This ratio helps identify dramatic jumps that reveal when a core electron is being removed.",
+      "params": {
+        "a": {
+          "min": 1000,
+          "max": 3000,
+          "step": 500
+        },
+        "b": {
+          "min": 4000,
+          "max": 9000,
+          "step": 500
+        }
+      },
+      "answer_formula": "b / a",
+      "precision": 2,
+      "unit": "",
+      "distractors": [
+        {
+          "formula": "a / b",
+          "error_type": "inverted_the_ratio_dividing_IE2_by_IE3"
+        },
+        {
+          "formula": "b - a",
+          "error_type": "subtracted_instead_of_dividing"
+        },
+        {
+          "formula": "b / (a + b)",
+          "error_type": "divided_IE3_by_the_sum_of_IE2_plus_IE3_instead_of_computing_the_ratio"
+        }
+      ]
+    }
+  },
+  {
+    "subject": "AP Chemistry",
+    "unit": "Unit 1: Atomic Structure and Properties",
+    "unit_exam_weight_pct": 9,
+    "deck": "Atomic and Ionic Radius Trends",
+    "type": "mc_numeric",
+    "difficulty": "medium",
+    "tags": [
+      "ionic_radius",
+      "isoelectronic",
+      "nuclear_charge"
+    ],
+    "source": "ced_generated",
+    "reviewed": false,
+    "visual": null,
+    "content": {
+      "stem": "Two isoelectronic ions each have 10 electrons. Ion X has nuclear charge {{a}} and Ion Y has nuclear charge {{b}} (where {{b}} > {{a}}). Which ion has the smaller radius, and by how much does the nuclear charge differ? (Answer: report the larger nuclear charge, which corresponds to the smaller ion.)",
+      "params": {
+        "a": {
+          "min": 8,
+          "max": 10,
+          "step": 1
+        },
+        "b": {
+          "min": 11,
+          "max": 13,
+          "step": 1
+        }
+      },
+      "answer_formula": "b",
+      "precision": 0,
+      "unit": "(atomic number of smaller ion)",
+      "distractors": [
+        {
+          "formula": "a",
+          "error_type": "chose_lower_nuclear_charge_ion_which_is_actually_the_larger_ion"
+        },
+        {
+          "formula": "b - a",
+          "error_type": "reported_the_difference_in_nuclear_charges_instead_of_identifying_the_ion"
+        },
+        {
+          "formula": "a + b",
+          "error_type": "summed_both_nuclear_charges_instead_of_identifying_the_larger_one"
+        }
+      ]
+    }
+  },
+  {
+    "subject": "AP Chemistry",
+    "unit": "Unit 1: Atomic Structure and Properties",
+    "unit_exam_weight_pct": 9,
+    "deck": "Shielding and Effective Nuclear Charge",
+    "type": "fr_static",
+    "difficulty": "easy",
+    "tags": [
+      "shielding",
+      "core_electrons",
+      "effective_nuclear_charge"
+    ],
+    "source": "ced_generated",
+    "reviewed": false,
+    "visual": null,
+    "content": {
+      "stem": "What term describes the phenomenon by which inner (core) electrons reduce the full attractive force of the nucleus felt by outer (valence) electrons?",
+      "accepted_answers": [
+        "shielding",
+        "electron shielding",
+        "screening",
+        "electron screening"
+      ],
+      "semantic_fallback": true
+    }
+  },
+  {
+    "subject": "AP Chemistry",
+    "unit": "Unit 1: Atomic Structure and Properties",
+    "unit_exam_weight_pct": 9,
+    "deck": "Electron Configuration (Advanced)",
+    "type": "fr_static",
+    "difficulty": "easy",
+    "tags": [
+      "electron_configuration",
+      "aufbau_principle",
+      "subshell_order"
+    ],
+    "source": "ced_generated",
+    "reviewed": false,
+    "visual": null,
+    "content": {
+      "stem": "State the principle that says electrons fill atomic orbitals in order of increasing energy, from lowest to highest, when building up the ground-state electron configuration of an atom.",
+      "accepted_answers": [
+        "aufbau principle",
+        "aufbau",
+        "building-up principle",
+        "building up principle"
+      ],
+      "semantic_fallback": true
+    }
+  },
+  {
+    "subject": "AP Chemistry",
+    "unit": "Unit 1: Atomic Structure and Properties",
+    "unit_exam_weight_pct": 9,
+    "deck": "Ionization Energy (Successive)",
+    "type": "fr_static",
+    "difficulty": "medium",
+    "tags": [
+      "ionization_energy",
+      "definition"
+    ],
+    "source": "ced_generated",
+    "reviewed": false,
+    "visual": null,
+    "content": {
+      "stem": "What term describes the minimum energy required to remove the most loosely held electron from a gaseous neutral atom in its ground state?",
+      "accepted_answers": [
+        "first ionization energy",
+        "ionization energy",
+        "first ionization potential",
+        "ie1"
+      ],
+      "semantic_fallback": true
+    }
+  },
+  {
+    "subject": "AP Chemistry",
+    "unit": "Unit 1: Atomic Structure and Properties",
+    "unit_exam_weight_pct": 9,
+    "deck": "Electron Affinity and Electronegativity",
+    "type": "fr_static",
+    "difficulty": "medium",
+    "tags": [
+      "electron_affinity",
+      "definition"
+    ],
+    "source": "ced_generated",
+    "reviewed": false,
+    "visual": null,
+    "content": {
+      "stem": "What term describes the energy change that occurs when a neutral gaseous atom gains one electron to form a gaseous anion?",
+      "accepted_answers": [
+        "electron affinity",
+        "electron affinity energy"
+      ],
+      "semantic_fallback": true
+    }
+  },
+  {
+    "subject": "AP Chemistry",
+    "unit": "Unit 1: Atomic Structure and Properties",
+    "unit_exam_weight_pct": 9,
+    "deck": "Atomic and Ionic Radius Trends",
+    "type": "fr_static",
+    "difficulty": "medium",
+    "tags": [
+      "isoelectronic",
+      "ionic_radius",
+      "periodic_trends"
+    ],
+    "source": "ced_generated",
+    "reviewed": false,
+    "visual": null,
+    "content": {
+      "stem": "What word describes a series of atoms or ions that all have the same number of electrons, such as O²⁻, F⁻, Na⁺, and Mg²⁺?",
+      "accepted_answers": [
+        "isoelectronic",
+        "isoelectronic series"
+      ],
+      "semantic_fallback": true
+    }
+  },
+  {
+    "subject": "AP Chemistry",
+    "unit": "Unit 1: Atomic Structure and Properties",
+    "unit_exam_weight_pct": 9,
+    "deck": "Coulomb's Law and Atomic Structure",
+    "type": "fr_static",
+    "difficulty": "hard",
+    "tags": [
+      "coulombs_law",
+      "lattice_energy",
+      "ionic_radius"
+    ],
+    "source": "ced_generated",
+    "reviewed": false,
+    "visual": null,
+    "content": {
+      "stem": "Using Coulomb's law, identify two factors that would each independently increase the strength of the electrostatic attraction between a cation and an anion in an ionic compound.",
+      "accepted_answers": [
+        "larger ionic charges and smaller ionic radii",
+        "higher charges and smaller distance between ions",
+        "greater magnitude of charges and smaller ionic radii",
+        "increasing ionic charges and decreasing ionic radii"
+      ],
+      "semantic_fallback": true
+    }
+  },
+  {
+    "subject": "AP Chemistry",
+    "unit": "Unit 1: Atomic Structure and Properties",
+    "unit_exam_weight_pct": 9,
+    "deck": "Ionization Energy (Successive)",
+    "type": "fr_numeric",
+    "difficulty": "medium",
+    "tags": [
+      "ionization_energy",
+      "successive_ie",
+      "group_identification"
+    ],
+    "source": "ced_generated",
+    "reviewed": false,
+    "visual": null,
+    "content": {
+      "stem": "The successive ionization energies of element Q show a large jump between the {{a}}th and the ({{a}}+1)th ionization. In what group of the periodic table is element Q located?",
+      "params": {
+        "a": {
+          "min": 1,
+          "max": 4,
+          "step": 1
+        }
+      },
+      "answer_formula": "a",
+      "precision": 0,
+      "unit": "(Group number)",
+      "tolerance": 0,
+      "semantic_fallback": false
+    }
+  },
+  {
+    "subject": "AP Chemistry",
+    "unit": "Unit 1: Atomic Structure and Properties",
+    "unit_exam_weight_pct": 9,
+    "deck": "Shielding and Effective Nuclear Charge",
+    "type": "fr_numeric",
+    "difficulty": "medium",
+    "tags": [
+      "effective_nuclear_charge",
+      "shielding",
+      "simplified_model"
+    ],
+    "source": "ced_generated",
+    "reviewed": false,
+    "visual": null,
+    "content": {
+      "stem": "Using the simplified model Z_eff ≈ Z − S (where Z = atomic number, S = number of core electrons), calculate the effective nuclear charge experienced by the valence electrons of phosphorus (P, Z = 15). Phosphorus has 10 core electrons.",
+      "params": {
+        "a": {
+          "min": 1,
+          "max": 1,
+          "step": 1
+        }
+      },
+      "answer_formula": "5 * a",
+      "precision": 0,
+      "unit": "",
+      "tolerance": 0,
+      "semantic_fallback": false
+    }
+  },
+  {
+    "subject": "AP Chemistry",
+    "unit": "Unit 1: Atomic Structure and Properties",
+    "unit_exam_weight_pct": 9,
+    "deck": "Electron Affinity and Electronegativity",
+    "type": "mc_numeric",
+    "difficulty": "easy",
+    "tags": [
+      "electronegativity",
+      "periodic_trends",
+      "group_trend"
+    ],
+    "source": "ced_generated",
+    "reviewed": false,
+    "visual": null,
+    "content": {
+      "stem": "Electronegativity decreases going down a group. If element X in Period 2 has electronegativity {{a}} and each period down the group decreases electronegativity by {{b}} units, what is the electronegativity of the element {{a}} periods below X in the same group?",
+      "params": {
+        "a": {
+          "min": 2.5,
+          "max": 4,
+          "step": 0.5
+        },
+        "b": {
+          "min": 0.3,
+          "max": 0.6,
+          "step": 0.1
+        }
+      },
+      "answer_formula": "a - a * b",
+      "precision": 2,
+      "unit": "(Pauling units)",
+      "distractors": [
+        {
+          "formula": "a + a * b",
+          "error_type": "added_decrease_instead_of_subtracting_it"
+        },
+        {
+          "formula": "a - 2 * b",
+          "error_type": "subtracted_twice_the_per_period_decrease_instead_of_scaling_by_number_of_periods"
+        },
+        {
+          "formula": "a - b",
+          "error_type": "subtracted_one_step_decrease_instead_of_scaling_by_number_of_periods"
+        }
+      ]
+    }
+  }
+]

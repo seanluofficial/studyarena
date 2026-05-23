@@ -1,0 +1,14 @@
+{
+  "name": "studyarena-scripts",
+  "version": "1.0.0",
+  "description": "Content pipeline scripts for StudyArena",
+  "scripts": {
+    "validate": "node validate.js",
+    "import": "node import.js"
+  },
+  "dependencies": {
+    "mathjs": "^12.4.0",
+    "pg": "^8.11.0",
+    "dotenv": "^16.4.0"
+  }
+}
