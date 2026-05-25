@@ -1,8 +1,5 @@
-[phases.setup]
-nixPkgs = ["nodejs_20"]
-
 [phases.install]
-cmds = ["cd server && npm install"]
+cmds = ["npm install --prefix server"]
 
 [start]
 cmd = "node server/index.js"
