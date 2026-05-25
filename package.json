@@ -2,7 +2,8 @@
   "name": "studyarena",
   "version": "1.0.0",
   "scripts": {
-    "start": "node server/index.js"
+    "start": "node server/index.js",
+    "postinstall": "npm install --prefix server"
   },
   "engines": {
     "node": ">=18"
