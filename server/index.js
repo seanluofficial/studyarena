@@ -245,4 +245,4 @@ io.on('connection', (socket) => {
 app.get('/health', (_, res) => res.json({ ok: true, queue: queue.length, battles: battles.size }));
 
 const PORT = process.env.PORT || 4000;
-server.listen(PORT, () => console.log(`Battle server on :${PORT}`));
+server.listen(PORT, '0.0.0.0', () => console.log(`Battle server on :${PORT}`));
