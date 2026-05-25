@@ -10,12 +10,8 @@ const app = express();
 app.use(cors());
 
 const server = http.createServer(app);
-const ALLOWED_ORIGINS = process.env.ALLOWED_ORIGINS
-  ? process.env.ALLOWED_ORIGINS.split(',')
-  : ['http://localhost:3000'];
-
 const io = new Server(server, {
-  cors: { origin: ALLOWED_ORIGINS, methods: ['GET', 'POST'] },
+  cors: { origin: '*', methods: ['GET', 'POST'] },
 });
 
 // ─── State ────────────────────────────────────────────────────────────────────
