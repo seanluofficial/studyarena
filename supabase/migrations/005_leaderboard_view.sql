@@ -1,5 +1,7 @@
 -- 005_leaderboard_view.sql
-CREATE OR REPLACE VIEW public.leaderboard AS
+CREATE OR REPLACE VIEW public.leaderboard
+  WITH (security_invoker = true)
+AS
 SELECT
   RANK() OVER (PARTITION BY er.subject ORDER BY er.rating DESC) AS rank,
   p.display_name,
