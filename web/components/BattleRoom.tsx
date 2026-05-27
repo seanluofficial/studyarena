@@ -21,6 +21,7 @@ interface BattleState {
   opponentAnswer: number | null;
   myScore: number;
   oppScore: number;
+  oppQIndex: number;
 }
 
 interface Props {
@@ -28,10 +29,9 @@ interface Props {
   opponent: { displayName: string };
   mySocketId: string;
   onSubmit: (index: number) => void;
-  waitingForOpponent?: boolean;
 }
 
-export default function BattleRoom({ battle, opponent, onSubmit, waitingForOpponent = false }: Props) {
+export default function BattleRoom({ battle, opponent, onSubmit }: Props) {
   const { phase, question, qIndex, qTotal, selectedIndex, correctIndex, lastCorrect, opponentAnswer, myScore, oppScore } = battle;
   const [reportSent, setReportSent] = useState(false);
 
@@ -100,7 +100,7 @@ export default function BattleRoom({ battle, opponent, onSubmit, waitingForOppon
               <button
                 key={i}
                 onClick={() => onSubmit(i)}
-                disabled={selectedIndex !== null || isReveal || waitingForOpponent}
+                disabled={selectedIndex !== null || isReveal}
                 className={`w-full text-left px-4 py-3 transition ${cls} relative`}
               >
                 <span className="font-bold mr-2 text-gray-500">{String.fromCharCode(65 + i)}.</span>
@@ -115,15 +115,8 @@ export default function BattleRoom({ battle, opponent, onSubmit, waitingForOppon
           })}
         </div>
 
-        {/* Waiting overlay */}
-        {waitingForOpponent && (
-          <p className="text-center text-sm text-indigo-400 animate-pulse">
-            Waiting for {opponent.displayName}…
-          </p>
-        )}
-
         {/* Reveal feedback */}
-        {isReveal && !waitingForOpponent && lastCorrect !== null && (
+        {isReveal && lastCorrect !== null && (
           <p className={`text-center text-sm font-semibold ${lastCorrect ? 'text-green-400' : 'text-red-400'}`}>
             {lastCorrect ? '✓ Correct' : '✗ Wrong'} — next question in a moment
           </p>

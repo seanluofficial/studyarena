@@ -20,7 +20,6 @@ type AppPhase =
   | 'queuing'
   | 'countdown'
   | 'battle'
-  | 'waiting_opponent'
   | 'finished'
   | 'disconnected'
   | 'complete'
@@ -44,6 +43,7 @@ interface BattleState {
   opponentAnswer: number | null;
   myScore: number;
   oppScore: number;
+  oppQIndex: number;
 }
 
 export default function Home() {
@@ -73,6 +73,7 @@ export default function Home() {
     opponentAnswer: null,
     myScore: 0,
     oppScore: 0,
+    oppQIndex: 0,
   });
 
   // Load user profile and ELO
@@ -123,6 +124,7 @@ export default function Home() {
       opponentAnswer: null,
       myScore: 0,
       oppScore: 0,
+      oppQIndex: 0,
     });
     setRoomId(null);
     setOpponent(null);
@@ -168,7 +170,6 @@ export default function Home() {
       }, 1000);
     });
 
-    // Synchronized: both players receive the same question simultaneously
     socket.on('question', ({ index, total, question }) => {
       setAppPhase('battle');
       setBattle(prev => ({
@@ -184,36 +185,34 @@ export default function Home() {
       }));
     });
 
-    // After this player answers, show waiting state
-    socket.on('waiting_for_opponent', () => {
-      setAppPhase('waiting_opponent');
-    });
-
-    // Both players answered — broadcast to both with each other's answer
-    socket.on('question_result', ({ correct_index, results, scores }: {
+    // Per-player result — immediate feedback, then server sends next question
+    socket.on('question_result', ({ correct_index, your_answer, correct, score, opponent_score }: {
       correct_index: number;
-      results: Record<string, { answer: number; correct: boolean }>;
-      scores: Record<string, number>;
+      your_answer: number;
+      correct: boolean;
+      score: number;
+      opponent_score: number;
     }) => {
-      const myId = getSocket().id ?? '';
-      const myResult = results[myId];
-      const oppEntry = Object.entries(results).find(([id]) => id !== myId);
-      const oppResult = oppEntry?.[1];
-      const myScore = scores[myId] ?? 0;
-      const oppId = Object.keys(scores).find(id => id !== myId);
-      const oppScore = oppId ? (scores[oppId] ?? 0) : 0;
-
       setBattle(prev => ({
         ...prev,
         phase: 'reveal',
         correctIndex: correct_index,
-        selectedIndex: myResult?.answer ?? prev.selectedIndex,
-        lastCorrect: myResult?.correct ?? false,
-        opponentAnswer: oppResult?.answer ?? null,
-        myScore,
-        oppScore,
+        selectedIndex: your_answer ?? prev.selectedIndex,
+        lastCorrect: correct,
+        opponentAnswer: null,
+        myScore: score,
+        oppScore: opponent_score,
       }));
-      setAppPhase('battle');
+    });
+
+    // Opponent answered — update their score display
+    socket.on('opponent_progress', ({ score, questionIndex }: { score: number; questionIndex: number }) => {
+      setBattle(prev => ({ ...prev, oppScore: score, oppQIndex: questionIndex }));
+    });
+
+    socket.on('you_finished', ({ score, opponent_score }: { score: number; opponent_score: number }) => {
+      setBattle(prev => ({ ...prev, myScore: score, oppScore: opponent_score }));
+      setAppPhase('finished');
     });
 
     socket.on('battle_complete', ({ scores, winner: w, eloDeltas }) => {
@@ -364,20 +363,6 @@ export default function Home() {
     );
   }
 
-  // ── Waiting for opponent after answering ──────────────────────────────────
-  if (appPhase === 'waiting_opponent' && battle.question) {
-    const socket = getSocket();
-    return (
-      <BattleRoom
-        battle={{ ...battle, phase: 'reveal' }}
-        opponent={opponent!}
-        mySocketId={socket.id!}
-        onSubmit={submitAnswer}
-        waitingForOpponent
-      />
-    );
-  }
-
   // ── Battle screen ──────────────────────────────────────────────────────────
   if (appPhase === 'battle' && battle.question) {
     const socket = getSocket();
@@ -387,7 +372,6 @@ export default function Home() {
         opponent={opponent!}
         mySocketId={socket.id!}
         onSubmit={submitAnswer}
-        waitingForOpponent={false}
       />
     );
   }

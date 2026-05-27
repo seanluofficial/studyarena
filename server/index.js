@@ -43,8 +43,9 @@ function getSupabase() {
 // queue entry: { socketId, userId, displayName, elo, subject, joinedAt }
 const queue = [];
 
-// roomId → { roomId, players, questions, subject, currentRound, roundAnswers }
-// players[socketId] = { socketId, userId, displayName, elo, subject, score }
+// roomId → { roomId, players, questions, subject, battleStartedAt, progress }
+// players[socketId] = { socketId, userId, displayName, elo, subject }
+// progress[socketId] = { questionIndex, score, done, finishedAt }
 const battles = new Map();
 
 // userId → { roomId, oldSocketId, timer, intervalTimer }
@@ -136,13 +137,16 @@ function createBattle(p1, p2) {
   const state = {
     roomId,
     players: {
-      [p1.socketId]: { ...p1, score: 0 },
-      [p2.socketId]: { ...p2, score: 0 },
+      [p1.socketId]: { ...p1 },
+      [p2.socketId]: { ...p2 },
     },
     questions: [],
     subject: p1.subject,
-    currentRound: 0,
-    roundAnswers: {},
+    battleStartedAt: null,
+    progress: {
+      [p1.socketId]: { questionIndex: 0, score: 0, done: false, finishedAt: null },
+      [p2.socketId]: { questionIndex: 0, score: 0, done: false, finishedAt: null },
+    },
   };
 
   battles.set(roomId, state);
@@ -187,72 +191,98 @@ async function startBattle(roomId) {
     }
   }
 
-  state.questions = await pickQuestions(state.subject, 10);
-  sendCurrentQuestion(roomId);
+  state.questions = await pickQuestions(state.subject, 1);
+  state.battleStartedAt = Date.now();
+  // Send each player their first question independently
+  for (const sid of Object.keys(state.players)) {
+    sendNextQuestion(roomId, sid);
+  }
 }
 
-function sendCurrentQuestion(roomId) {
+function sendNextQuestion(roomId, socketId) {
   const state = battles.get(roomId);
   if (!state) return;
+  const prog = state.progress[socketId];
+  if (!prog || prog.done) return;
 
-  const q = state.questions[state.currentRound];
+  const q = state.questions[prog.questionIndex];
   if (!q) {
-    endBattle(roomId);
+    finishPlayer(roomId, socketId);
     return;
   }
 
-  state.roundAnswers[state.currentRound] = {};
-
-  io.to(roomId).emit('question', {
-    index: state.currentRound,
+  io.to(socketId).emit('question', {
+    index: prog.questionIndex,
     total: state.questions.length,
     question: q,
   });
+}
+
+function getOpponentScore(state, mySocketId) {
+  const oppId = Object.keys(state.players).find(id => id !== mySocketId);
+  return oppId ? (state.progress[oppId]?.score ?? 0) : 0;
 }
 
 function handleAnswer(roomId, socketId, answerIndex) {
   const state = battles.get(roomId);
   if (!state) return;
 
-  const round = state.currentRound;
-  if (!state.roundAnswers[round]) state.roundAnswers[round] = {};
-  if (state.roundAnswers[round][socketId] !== undefined) return; // already answered
+  const prog = state.progress[socketId];
+  if (!prog || prog.done) return;
 
-  state.roundAnswers[round][socketId] = answerIndex;
+  const q = state.questions[prog.questionIndex];
+  if (!q) return;
 
-  const sids = Object.keys(state.players);
-  const allAnswered = sids.every(sid => state.roundAnswers[round][sid] !== undefined);
+  const correct = answerIndex === q.correct_index;
+  if (correct) prog.score++;
 
-  if (!allAnswered) {
-    io.to(socketId).emit('waiting_for_opponent');
-    return;
-  }
-
-  // Both answered — score and broadcast
-  const q = state.questions[round];
-  const results = {};
-  for (const sid of sids) {
-    const ans = state.roundAnswers[round][sid];
-    const correct = ans === q.correct_index;
-    if (correct) state.players[sid].score++;
-    results[sid] = { answer: ans, correct };
-  }
-
-  io.to(roomId).emit('question_result', {
+  // Immediate per-player feedback
+  io.to(socketId).emit('question_result', {
     correct_index: q.correct_index,
-    results,
-    scores: Object.fromEntries(sids.map(sid => [sid, state.players[sid].score])),
+    your_answer: answerIndex,
+    correct,
+    score: prog.score,
+    opponent_score: getOpponentScore(state, socketId),
   });
 
-  // Advance to next question after 2s reveal
+  prog.questionIndex++;
+
+  // Tell opponent about progress
+  const oppId = Object.keys(state.players).find(id => id !== socketId);
+  if (oppId) {
+    io.to(oppId).emit('opponent_progress', {
+      score: prog.score,
+      questionIndex: prog.questionIndex,
+      done: prog.done,
+    });
+  }
+
+  // Advance this player after a short reveal
   setTimeout(() => {
-    state.currentRound++;
-    if (state.currentRound >= state.questions.length) {
-      endBattle(roomId);
+    if (prog.questionIndex >= state.questions.length) {
+      finishPlayer(roomId, socketId);
     } else {
-      sendCurrentQuestion(roomId);
+      sendNextQuestion(roomId, socketId);
     }
-  }, 2000);
+  }, 1500);
+}
+
+function finishPlayer(roomId, socketId) {
+  const state = battles.get(roomId);
+  if (!state) return;
+  const prog = state.progress[socketId];
+  if (!prog) return;
+
+  prog.done = true;
+  prog.finishedAt = Date.now();
+
+  io.to(socketId).emit('you_finished', {
+    score: prog.score,
+    opponent_score: getOpponentScore(state, socketId),
+  });
+
+  const allDone = Object.values(state.progress).every(p => p.done);
+  if (allDone) endBattle(roomId);
 }
 
 async function endBattle(roomId) {
@@ -260,18 +290,18 @@ async function endBattle(roomId) {
   if (!state) return;
 
   const sids = Object.keys(state.players);
-  const scores = Object.fromEntries(sids.map(sid => [sid, state.players[sid].score]));
+  const scores = Object.fromEntries(sids.map(sid => [sid, state.progress[sid].score]));
 
   const [s1, s2] = sids.map(sid => scores[sid]);
+  const [t1, t2] = sids.map(sid => state.progress[sid].finishedAt ?? Date.now());
+
   let winner = null;
   if (s1 > s2) winner = sids[0];
   else if (s2 > s1) winner = sids[1];
+  else if (t1 < t2) winner = sids[0]; // same score — faster player wins
+  else if (t2 < t1) winner = sids[1];
 
-  // Build progress-compatible shape for updateElo
-  const stateForElo = {
-    ...state,
-    progress: Object.fromEntries(sids.map(sid => [sid, { score: scores[sid] }])),
-  };
+  const stateForElo = { ...state };
 
   let eloDeltas = {};
   try {
@@ -309,7 +339,7 @@ function handleDisconnect(socketId) {
       break;
     }
 
-    let countdown = 30;
+    let countdown = 10;
     io.to(remainingId).emit('opponent_disconnected');
     io.to(remainingId).emit('opponent_reconnect_countdown', { seconds: countdown });
 
@@ -323,13 +353,17 @@ function handleDisconnect(socketId) {
       pendingReconnects.delete(player.userId);
       const currentState = battles.get(roomId);
       if (!currentState) return;
-      // Forfeit disconnected player — set score to 0 and end
-      currentState.players[socketId].score = 0;
+      // Forfeit disconnected player
+      if (currentState.progress[socketId]) {
+        currentState.progress[socketId].done = true;
+        currentState.progress[socketId].finishedAt = Date.now();
+        currentState.progress[socketId].score = 0;
+      }
       endBattle(roomId);
-    }, 30000);
+    }, 10000);
 
     pendingReconnects.set(player.userId, { roomId, oldSocketId: socketId, timer, intervalTimer });
-    console.log(`[disconnect] ${player.displayName} — 30s grace in ${roomId}`);
+    console.log(`[disconnect] ${player.displayName} — 10s grace in ${roomId}`);
     break;
   }
 }
@@ -347,33 +381,24 @@ function handleReconnect(socket, userId, displayName) {
 
   const { oldSocketId } = pending;
   if (state.players[oldSocketId]) {
-    // Migrate player to new socket
     state.players[socket.id] = { ...state.players[oldSocketId], socketId: socket.id };
     delete state.players[oldSocketId];
-
-    // Migrate any pending round answer
-    const round = state.currentRound;
-    if (state.roundAnswers[round]?.[oldSocketId] !== undefined) {
-      state.roundAnswers[round][socket.id] = state.roundAnswers[round][oldSocketId];
-      delete state.roundAnswers[round][oldSocketId];
-    }
+    state.progress[socket.id] = state.progress[oldSocketId];
+    delete state.progress[oldSocketId];
   }
 
   socket.join(pending.roomId);
 
-  // Notify opponent
   const otherId = Object.keys(state.players).find(id => id !== socket.id);
   if (otherId) io.to(otherId).emit('opponent_reconnected');
 
-  // Resume: send current question (or waiting state if already answered)
-  const q = state.questions[state.currentRound];
-  if (q) {
-    const alreadyAnswered = state.roundAnswers[state.currentRound]?.[socket.id] !== undefined;
-    if (alreadyAnswered) {
-      socket.emit('waiting_for_opponent');
-    } else {
+  // Resume: send current question for this player
+  const prog = state.progress[socket.id];
+  if (prog && !prog.done) {
+    const q = state.questions[prog.questionIndex];
+    if (q) {
       socket.emit('question', {
-        index: state.currentRound,
+        index: prog.questionIndex,
         total: state.questions.length,
         question: q,
       });
