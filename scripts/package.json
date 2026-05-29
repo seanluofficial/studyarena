@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "description": "Content pipeline scripts for StudyArena",
   "scripts": {
-    "validate": "node validate.js",
     "import": "node import.js",
     "validate:unit1": "node validator_agent.js --unit 1",
     "validate:unit2": "node validator_agent.js --unit 2"

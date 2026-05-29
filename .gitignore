@@ -37,3 +37,9 @@ Thumbs.db
 
 # TypeScript
 *.tsbuildinfo
+
+# Generated content artifacts (pipeline output — not source-controlled)
+content/apchem/unit*_clean.json
+content/raw/
+content/reports/
+content/prompts/

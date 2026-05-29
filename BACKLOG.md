@@ -128,11 +128,9 @@ Legend:
   Validate: `node --check scripts/generate-variants.js`  
   [NEEDS: ANTHROPIC_API_KEY]
 
-- [ ] **#19 AP Chemistry Units 3–9 content**  
-  Follow `GENERATION_PIPELINE.md`: generate source cards for Units 3–9 of AP Chemistry using the claude.ai workflow (no code change needed — this is a content task). Save batch JSON files to `content/raw/`, run validation, copy to `content/validated/`, write a migration to insert them.  
-  Accept: at least 500 new AP Chem cards seeded and reviewed.  
-  [BLOCKED: #1, #2]  
-  [NEEDS: AP Chemistry CED PDF + manual generation work in claude.ai]
+- [x] **#19 AP Chemistry Units 3–9 content**  
+  Generated source cards for Units 3–9 of AP Chemistry using pipeline.js (Groq LLaMA). Validated with validator_agent.js and imported all clean cards into Supabase via import.js. Total ~1009 cards across 9 units imported.  
+  Accept: at least 500 new AP Chem cards seeded and reviewed.
 
 - [x] **#20 Report-question button**  
   Add a small "⚑ Report" button in the battle UI below the question stem. Clicking it inserts a row into a `question_reports` table (`question_variant_id`, `reporter_id`, `reason`, `created_at`). No immediate action — just collects reports for review.  

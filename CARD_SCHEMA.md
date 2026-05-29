@@ -343,6 +343,6 @@ AP Calculus AB
 - [ ] What's the re-generation policy when a source card is edited — invalidate all variants, or only regenerate if the stem/params changed?
 
 ### Resolved
-- **Who authors cards?** Claude Sonnet, given the AP CED PDF per subject. See `GENERATION_PIPELINE.md`.
+- **Who authors cards?** Claude Sonnet / LLaMA via Groq, given the AP CED objectives per unit. See `scripts/pipeline.js` for the end-to-end generation pipeline.
 - **Numeric randomization approach:** AI generates `{{var}}` placeholders, `params` ranges, and `answer_formula` at generation time. Numbers are substituted at variant-generation time, not battle time.
 - **Reviewed gate:** Only `reviewed: true` cards are served in battles. AI-generated cards default to `false`.
