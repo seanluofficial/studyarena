@@ -32,8 +32,73 @@ const C = {
   green:'\x1b[32m', yellow:'\x1b[33m', red:'\x1b[31m', cyan:'\x1b[36m', gray:'\x1b[90m',
 };
 
+const NUM_NUMERIC_VARIANTS = 8;
+
 function contentHash(content) {
   return crypto.createHash('sha256').update(JSON.stringify(content)).digest('hex');
+}
+
+function evalFormula(formula, params) {
+  const keys = Object.keys(params);
+  const vals = keys.map(k => params[k]);
+  // eslint-disable-next-line no-new-func
+  return new Function(...keys, `return (${formula})`).call(null, ...vals);
+}
+
+function sampleParams(paramDefs) {
+  const result = {};
+  for (const [key, def] of Object.entries(paramDefs)) {
+    const { min, max, step = 1 } = def;
+    const steps = Math.floor((max - min) / step);
+    result[key] = min + Math.floor(Math.random() * (steps + 1)) * step;
+  }
+  return result;
+}
+
+function fillTemplate(str, params) {
+  return str.replace(/\{\{(\w+)\}\}/g, (_, k) => params[k] ?? `{{${k}}}`);
+}
+
+function renderNumericVariant(card) {
+  const { stem, params: paramDefs, answer_formula, precision = 2, unit = '', distractors } = card.content;
+  const fmt = v => {
+    const n = parseFloat(v.toFixed(precision));
+    return unit ? `${n} ${unit}` : String(n);
+  };
+
+  for (let attempt = 0; attempt < 20; attempt++) {
+    const params = sampleParams(paramDefs);
+    let answerVal;
+    try { answerVal = evalFormula(answer_formula, params); } catch { continue; }
+    if (!isFinite(answerVal)) continue;
+
+    const answerStr = fmt(answerVal);
+    const distractorStrs = [];
+    let ok = true;
+    for (const d of distractors) {
+      let dVal;
+      try { dVal = evalFormula(d.formula, params); } catch { ok = false; break; }
+      if (!isFinite(dVal)) { ok = false; break; }
+      const dStr = fmt(dVal);
+      if (dStr === answerStr || distractorStrs.includes(dStr)) { ok = false; break; }
+      distractorStrs.push(dStr);
+    }
+    if (!ok) continue;
+
+    const options = [answerStr, ...distractorStrs];
+    for (let i = options.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [options[i], options[j]] = [options[j], options[i]];
+    }
+    return {
+      rendered_stem:    fillTemplate(stem, params),
+      rendered_options: options,
+      correct_index:    options.indexOf(answerStr),
+      correct_value:    answerVal,
+      param_values:     params,
+    };
+  }
+  return null;
 }
 
 async function importUnit(unitNum, cards) {
@@ -125,12 +190,56 @@ async function importUnit(unitNum, cards) {
       }
     }
 
+    // Build variant rows for mc_numeric cards (NUM_NUMERIC_VARIANTS param combos each)
+    const numericCandidates = [];
+    for (const row of sourceCardRows) {
+      const sc = hashToCard[row.content_hash];
+      if (!sc || sc.type !== 'mc_numeric') continue;
+      const original = batch.find(c => contentHash(c.content) === row.content_hash);
+      if (!original) continue;
+
+      const seen = new Set();
+      let generated = 0;
+      for (let attempt = 0; attempt < NUM_NUMERIC_VARIANTS * 5 && generated < NUM_NUMERIC_VARIANTS; attempt++) {
+        const v = renderNumericVariant(original);
+        if (!v) continue;
+        const key = JSON.stringify(v.param_values);
+        if (seen.has(key)) continue;
+        seen.add(key);
+        numericCandidates.push({ source_card_id: sc.id, ...v });
+        generated++;
+      }
+    }
+
+    if (numericCandidates.length > 0) {
+      const numericCardIds = [...new Set(numericCandidates.map(v => v.source_card_id))];
+      const { data: existingNumeric } = await supabase
+        .from('question_variants')
+        .select('source_card_id')
+        .in('source_card_id', numericCardIds);
+
+      const alreadyDoneNumeric = new Set((existingNumeric || []).map(v => v.source_card_id));
+      const newNumericVariants = numericCandidates.filter(v => !alreadyDoneNumeric.has(v.source_card_id));
+
+      if (newNumericVariants.length > 0) {
+        const { error: numericError } = await supabase
+          .from('question_variants')
+          .insert(newNumericVariants);
+        if (numericError) {
+          console.error(`${C.red}  question_variants (numeric) error: ${numericError.message}${C.reset}`);
+        } else {
+          variantInserted += newNumericVariants.length;
+        }
+      }
+    }
+
     process.stdout.write(`  ${C.gray}batch ${Math.floor(i/BATCH)+1}/${Math.ceil(cards.length/BATCH)}${C.reset}\r`);
   }
 
-  const mcStaticCount = cards.filter(c => c != null && c.type === 'mc_static').length;
+  const mcStaticCount  = cards.filter(c => c != null && c.type === 'mc_static').length;
+  const mcNumericCount = cards.filter(c => c != null && c.type === 'mc_numeric').length;
   console.log(`  source_cards:      ${C.green}+${cardInserted}${C.reset} inserted, ${cardSkipped} already existed`);
-  console.log(`  question_variants: ${C.green}+${variantInserted}${C.reset} inserted (mc_static only; ${mcStaticCount} eligible)`);
+  console.log(`  question_variants: ${C.green}+${variantInserted}${C.reset} inserted (mc_static: ${mcStaticCount} eligible, mc_numeric: ${mcNumericCount} × ${NUM_NUMERIC_VARIANTS} variants)`);
   if (errors) console.log(`  ${C.red}${errors} errors${C.reset}`);
   return { cardInserted, variantInserted };
 }
