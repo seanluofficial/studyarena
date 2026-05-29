@@ -191,7 +191,7 @@ async function startBattle(roomId) {
     }
   }
 
-  state.questions = await pickQuestions(state.subject, 1);
+  state.questions = await pickQuestions(state.subject, 10);
   state.battleStartedAt = Date.now();
   // Send each player their first question independently
   for (const sid of Object.keys(state.players)) {

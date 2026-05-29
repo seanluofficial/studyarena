@@ -34,19 +34,24 @@ async function pickQuestionsFromDB(subject, n) {
   if (cardsErr) throw cardsErr;
   if (!cards || cards.length === 0) throw new Error(`No reviewed cards for subject: ${subject}`);
 
+  // Shuffle card IDs in JS so every battle draws from a different random subset
   const cardIds = cards.map(c => c.id);
+  for (let i = cardIds.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [cardIds[i], cardIds[j]] = [cardIds[j], cardIds[i]];
+  }
+  const sampleIds = cardIds.slice(0, n * 4);
 
   const { data: variants, error: varErr } = await supabase
     .from('question_variants')
     .select('id, rendered_stem, rendered_options, correct_index')
-    .in('source_card_id', cardIds)
-    .not('rendered_options', 'is', null)
-    .limit(n * 5);
+    .in('source_card_id', sampleIds)
+    .not('rendered_options', 'is', null);
 
   if (varErr) throw varErr;
   if (!variants || variants.length === 0) throw new Error(`No variants for subject: ${subject}`);
 
-  // Shuffle
+  // Shuffle and return n
   for (let i = variants.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
     [variants[i], variants[j]] = [variants[j], variants[i]];

@@ -4,11 +4,15 @@
   "description": "Content pipeline scripts for StudyArena",
   "scripts": {
     "validate": "node validate.js",
-    "import": "node import.js"
+    "import": "node import.js",
+    "validate:unit1": "node validator_agent.js --unit 1",
+    "validate:unit2": "node validator_agent.js --unit 2"
   },
   "dependencies": {
+    "groq-sdk": "^0.9.0",
     "mathjs": "^12.4.0",
     "pg": "^8.11.0",
-    "dotenv": "^16.4.0"
+    "dotenv": "^16.4.0",
+    "@supabase/supabase-js": "^2.43.0"
   }
 }
