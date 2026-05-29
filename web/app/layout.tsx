@@ -13,8 +13,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "StudyArena — Competitive AP Exam Battles",
-  description: "Real-time 1v1 AP exam battles with ELO ranking",
+  title: "Studiem — Competitive Knowledge Battles",
+  description: "Real-time 1v1 knowledge battles with ELO ranking",
 };
 
 export default function RootLayout({

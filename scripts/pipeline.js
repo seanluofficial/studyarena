@@ -496,7 +496,7 @@ async function main() {
   const BATCH_GEN  = 25;  // questions to generate per round (lower = more reliable JSON from LLM)
   const BATCH_VAL  = 5;   // questions per validation call
 
-  console.log(`\n${C.bold}StudyArena Content Pipeline${C.reset}`);
+  console.log(`\n${C.bold}Studiem Content Pipeline${C.reset}`);
   console.log(`Unit: ${UNIT_NAMES[opts.unit]}`);
   console.log(`Target: ${opts.target} clean questions\n`);
 

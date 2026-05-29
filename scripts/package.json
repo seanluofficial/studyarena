@@ -1,7 +1,7 @@
 {
-  "name": "studyarena-scripts",
+  "name": "studiem-scripts",
   "version": "1.0.0",
-  "description": "Content pipeline scripts for StudyArena",
+  "description": "Content pipeline scripts for Studiem",
   "scripts": {
     "import": "node import.js",
     "validate:unit1": "node validator_agent.js --unit 1",

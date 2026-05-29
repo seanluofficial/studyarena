@@ -245,7 +245,7 @@ async function importUnit(unitNum, cards) {
 }
 
 async function main() {
-  console.log(`\n${C.bold}StudyArena — Supabase Import${C.reset}`);
+  console.log(`\n${C.bold}Studiem — Supabase Import${C.reset}`);
   console.log(`Target: ${SUPABASE_URL}\n`);
 
   const files = fs.readdirSync(CLEAN_DIR)

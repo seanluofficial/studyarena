@@ -1,4 +1,4 @@
-# StudyArena — Source Card Schema
+# Studiem — Source Card Schema
 
 **Version:** 1.0  
 **Date:** 2026-05-22

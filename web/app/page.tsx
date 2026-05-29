@@ -327,7 +327,7 @@ export default function Home() {
   // ── Lobby / queue / countdown ──────────────────────────────────────────────
   return (
     <main className="min-h-screen bg-[#0f0f14] text-white flex flex-col items-center justify-center gap-8 px-4">
-      <h1 className="text-4xl font-bold tracking-tight">StudyArena</h1>
+      <h1 className="text-4xl font-bold tracking-tight">Studiem</h1>
 
       {appPhase === 'idle' && (
         <div className="flex flex-col items-center gap-5 w-full max-w-sm">

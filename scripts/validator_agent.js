@@ -141,7 +141,7 @@ function saveGenerationPrompt(unit, totalNeeded, alreadyHave) {
   const prompt = `\
 SYSTEM PROMPT
 ─────────────
-You are an expert AP exam question author. You write questions in strict JSON format matching the StudyArena source card schema. Every card you produce must be:
+You are an expert AP exam question author. You write questions in strict JSON format matching the Studiem source card schema. Every card you produce must be:
 - Accurate to the AP Chemistry curriculum as described in the CED for ${unitName}
 - Varied in difficulty (roughly 40% easy, 40% medium, 20% hard per batch)
 - For mc_numeric and fr_numeric types: the answer_formula and distractor formulas must be valid math expressions using only the param variable names and numeric literals
@@ -527,7 +527,7 @@ async function main() {
   const allQuestions = loadQuestions(opts);
   const systemPrompt = buildSystemPrompt(opts.unit);
 
-  console.log(`\n${C.bold}StudyArena Validator Agent${C.reset}`);
+  console.log(`\n${C.bold}Studiem Validator Agent${C.reset}`);
   console.log(`Unit: ${UNIT_NAMES[opts.unit]}`);
   console.log(`Questions loaded: ${allQuestions.length}`);
   console.log(`Evaluation basis: AP Chemistry CED learning objectives`);

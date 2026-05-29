@@ -1,4 +1,4 @@
-# StudyArena — Development Backlog
+# Studiem — Development Backlog
 
 Tasks are ordered by dependency and priority. The loop picks the first unchecked task with no blockers.
 

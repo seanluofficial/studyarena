@@ -1,4 +1,4 @@
-# StudyArena — Product Requirements Document
+# Studiem — Product Requirements Document
 
 **Version:** 0.3  
 **Date:** 2026-05-22  
@@ -8,7 +8,7 @@
 
 ## 1. Overview
 
-StudyArena is a dark-themed, competitive multiplayer study app where students battle head-to-head on shared AP exam question decks. Two players face the same 10 AI-generated questions simultaneously; the faster, more accurate player wins. ELO ranking, streaks, and a public deck library turn solo studying into a competitive social sport.
+Studiem is a dark-themed, competitive multiplayer study app where students battle head-to-head on shared AP exam question decks. Two players face the same 10 AI-generated questions simultaneously; the faster, more accurate player wins. ELO ranking, streaks, and a public deck library turn solo studying into a competitive social sport.
 
 ---
 

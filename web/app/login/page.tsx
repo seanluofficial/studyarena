@@ -39,7 +39,7 @@ export default function LoginPage() {
 
   return (
     <main className="min-h-screen bg-gray-950 text-white flex flex-col items-center justify-center gap-6">
-      <h1 className="text-3xl font-bold tracking-tight">StudyArena</h1>
+      <h1 className="text-3xl font-bold tracking-tight">Studiem</h1>
 
       <div className="flex flex-col gap-4 w-full max-w-sm">
         <button

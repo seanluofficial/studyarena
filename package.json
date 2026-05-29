@@ -1,5 +1,5 @@
 {
-  "name": "studyarena",
+  "name": "studiem",
   "version": "1.0.0",
   "scripts": {
     "start": "node server/index.js",

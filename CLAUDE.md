@@ -1,4 +1,4 @@
-# StudyArena — Autonomous Loop Protocol
+# Studiem — Autonomous Loop Protocol
 
 ## Project Overview
 
