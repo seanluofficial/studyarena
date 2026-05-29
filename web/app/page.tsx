@@ -267,12 +267,16 @@ export default function Home() {
     getSocket().emit('submit_answer', { roomId, answerIndex: index });
   }
 
-  function playAgain(sameOpponent = false) {
-    void sameOpponent; // cosmetic distinction for now — both re-queue
+  function playAgain() {
     resetBattleState();
     setAppPhase('queuing');
     const socket = getSocket();
     socket.emit('join_queue', { userId: userId ?? socket.id, displayName, elo: myElo ?? 1000, subject });
+  }
+
+  function returnToLobby() {
+    resetBattleState();
+    setAppPhase('idle');
   }
 
   // ── Paywall screen ─────────────────────────────────────────────────────────
@@ -324,21 +328,18 @@ export default function Home() {
         )}
         <div className="flex gap-4 mt-2">
           <button
-            onClick={() => playAgain(true)}
+            onClick={playAgain}
             className="bg-indigo-600 hover:bg-indigo-500 text-white font-semibold px-6 py-3 transition"
           >
-            Rematch
+            Play Again
           </button>
           <button
-            onClick={() => playAgain(false)}
+            onClick={returnToLobby}
             className="bg-gray-700 hover:bg-gray-600 text-white font-semibold px-6 py-3 transition"
           >
-            New Opponent
+            Return to Lobby
           </button>
         </div>
-        <button onClick={() => { resetBattleState(); setAppPhase('idle'); }} className="text-xs text-gray-600 hover:text-gray-400 transition">
-          Back to lobby
-        </button>
       </main>
     );
   }
