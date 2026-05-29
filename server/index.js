@@ -51,47 +51,6 @@ const battles = new Map();
 // userId → { roomId, oldSocketId, timer, intervalTimer }
 const pendingReconnects = new Map();
 
-// ─── Battle limit helpers ─────────────────────────────────────────────────────
-
-async function checkBattleLimit(userId) {
-  if (!process.env.SUPABASE_URL) return { allowed: true };
-  const supabase = getSupabase();
-  const { data: p } = await supabase
-    .from('profiles')
-    .select('battles_today, battles_reset_date, is_premium')
-    .eq('id', userId)
-    .single();
-
-  if (!p || p.is_premium) return { allowed: true };
-
-  const today = new Date().toISOString().slice(0, 10);
-  const battlesToday = p.battles_reset_date === today ? (p.battles_today ?? 0) : 0;
-
-  if (battlesToday >= 3) {
-    const reset = new Date();
-    reset.setUTCHours(24, 0, 0, 0);
-    return { allowed: false, resetAt: reset.toISOString() };
-  }
-  return { allowed: true };
-}
-
-async function incrementBattleCount(userId) {
-  if (!process.env.SUPABASE_URL) return;
-  const supabase = getSupabase();
-  const today = new Date().toISOString().slice(0, 10);
-  const { data: p } = await supabase
-    .from('profiles')
-    .select('battles_today, battles_reset_date')
-    .eq('id', userId)
-    .single();
-  if (!p) return;
-  const battlesToday = p.battles_reset_date === today ? (p.battles_today ?? 0) : 0;
-  await supabase.from('profiles').update({
-    battles_today: battlesToday + 1,
-    battles_reset_date: today,
-  }).eq('id', userId);
-}
-
 // ─── Matchmaking ──────────────────────────────────────────────────────────────
 
 function tryMatch() {
@@ -171,25 +130,6 @@ function createBattle(p1, p2) {
 async function startBattle(roomId) {
   const state = battles.get(roomId);
   if (!state) return;
-
-  const sids = Object.keys(state.players);
-
-  // Check battle limits before starting
-  for (const sid of sids) {
-    const { userId } = state.players[sid];
-    const { allowed, resetAt } = await checkBattleLimit(userId);
-    if (!allowed) {
-      io.to(sid).emit('battle_limit_reached', { resetAt });
-      const otherId = sids.find(id => id !== sid);
-      if (otherId) {
-        const other = state.players[otherId];
-        queue.unshift({ ...other, joinedAt: Date.now() });
-        io.to(otherId).emit('queue_joined', { position: 1 });
-      }
-      battles.delete(roomId);
-      return;
-    }
-  }
 
   state.questions = await pickQuestions(state.subject, 10);
   state.battleStartedAt = Date.now();
@@ -310,11 +250,10 @@ async function endBattle(roomId) {
     console.error('[elo] update failed:', err);
   }
 
-  // Update streaks and battle counts
+  // Update streaks
   for (const sid of sids) {
     const { userId } = state.players[sid];
     try { await updateStreak(userId); } catch (err) { console.error('[streak]', err); }
-    try { await incrementBattleCount(userId); } catch (err) { console.error('[limit]', err); }
   }
 
   io.to(roomId).emit('battle_complete', { scores, winner, eloDeltas });

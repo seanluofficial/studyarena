@@ -22,8 +22,7 @@ type AppPhase =
   | 'battle'
   | 'finished'
   | 'disconnected'
-  | 'complete'
-  | 'paywall';
+  | 'complete';
 
 interface Question {
   id: string;
@@ -61,7 +60,6 @@ export default function Home() {
   const [myElo, setMyElo] = useState<number | null>(null);
   const [eloDelta, setEloDelta] = useState<number | null>(null);
   const [opponentElo, setOpponentElo] = useState<number | null>(null);
-  const [paywallResetAt, setPaywallResetAt] = useState<string | null>(null);
   const [battle, setBattle] = useState<BattleState>({
     phase: 'question',
     question: null,
@@ -226,11 +224,6 @@ export default function Home() {
       setAppPhase('complete');
     });
 
-    socket.on('battle_limit_reached', ({ resetAt }) => {
-      setPaywallResetAt(resetAt);
-      setAppPhase('paywall');
-    });
-
     socket.on('opponent_disconnected', () => {
       setReconnectCountdown(30);
     });
@@ -277,30 +270,6 @@ export default function Home() {
   function returnToLobby() {
     resetBattleState();
     setAppPhase('idle');
-  }
-
-  // ── Paywall screen ─────────────────────────────────────────────────────────
-  if (appPhase === 'paywall') {
-    const resetTime = paywallResetAt
-      ? new Date(paywallResetAt).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
-      : 'midnight UTC';
-    return (
-      <main className="min-h-screen bg-[#0f0f14] text-white flex flex-col items-center justify-center gap-6 px-4">
-        <div className="text-4xl">⚔️</div>
-        <h2 className="text-2xl font-bold text-center">Daily limit reached</h2>
-        <p className="text-gray-400 text-center max-w-sm">
-          You&apos;ve used your 3 free battles today. Resets at {resetTime}.
-        </p>
-        <p className="text-indigo-400 font-semibold text-lg">Premium — $2.99/mo</p>
-        <p className="text-gray-500 text-sm text-center">Unlimited battles, unlimited challenges</p>
-        <button
-          onClick={() => setAppPhase('idle')}
-          className="bg-gray-800 hover:bg-gray-700 text-gray-300 px-6 py-2 text-sm transition"
-        >
-          Back to lobby
-        </button>
-      </main>
-    );
   }
 
   // ── Complete screen ────────────────────────────────────────────────────────
