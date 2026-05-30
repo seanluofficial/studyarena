@@ -2,10 +2,10 @@
 
 import { useState, useEffect, useCallback } from 'react';
 import { useRouter } from 'next/navigation';
-import Link from 'next/link';
 import { getSocket } from '@/lib/socket';
 import { createClient } from '@/lib/supabase/client';
 import BattleRoom from '@/components/BattleRoom';
+import NavBar from '@/components/NavBar';
 
 const MVP_SUBJECTS = [
   'AP Biology',
@@ -73,7 +73,6 @@ export default function Home() {
     oppQIndex: 0,
   });
 
-  // Load user profile and ELO
   useEffect(() => {
     const supabase = createClient();
     supabase.auth.getUser().then(async ({ data: { user } }) => {
@@ -85,7 +84,6 @@ export default function Home() {
         .eq('id', user.id)
         .single();
       if (data) setDisplayName(data.display_name);
-
       const { data: eloRow } = await supabase
         .from('elo_ratings')
         .select('rating')
@@ -96,7 +94,6 @@ export default function Home() {
     });
   }, [router, subject]);
 
-  // Refresh ELO when subject changes
   useEffect(() => {
     if (!userId) return;
     const supabase = createClient();
@@ -139,10 +136,7 @@ export default function Home() {
 
     socket.on('queue_joined', () => setAppPhase('queuing'));
     socket.on('queue_left', () => setAppPhase('idle'));
-
-    socket.on('queue_timeout', () => {
-      setAppPhase('idle');
-    });
+    socket.on('queue_timeout', () => setAppPhase('idle'));
 
     socket.on('match_found', ({ roomId: rid, opponent: opp, myElo: serverMyElo }) => {
       setRoomId(rid);
@@ -150,7 +144,6 @@ export default function Home() {
       setOpponentElo(opp?.elo ?? 1000);
       if (typeof serverMyElo === 'number') setMyElo(serverMyElo);
       setAppPhase('countdown');
-
       let n = 3;
       setCountdown(n);
       const t = setInterval(() => {
@@ -175,7 +168,6 @@ export default function Home() {
       }));
     });
 
-    // Per-player result — immediate feedback, then server sends next question
     socket.on('question_result', ({ correct_index, your_answer, correct, score, opponent_score }: {
       correct_index: number;
       your_answer: number;
@@ -195,12 +187,10 @@ export default function Home() {
       }));
     });
 
-    // Opponent answered — update their score display
     socket.on('opponent_progress', ({ score, questionIndex }: { score: number; questionIndex: number }) => {
       setBattle(prev => ({ ...prev, oppScore: score, oppQIndex: questionIndex }));
     });
 
-    // Both players' reveal finished, but opponent hasn't answered yet — show waiting overlay
     socket.on('waiting_for_opponent', ({ myScore, opponentScore }: { myScore: number; opponentScore: number }) => {
       setBattle(prev => ({ ...prev, phase: 'waiting', myScore, oppScore: opponentScore }));
     });
@@ -223,7 +213,7 @@ export default function Home() {
     });
 
     socket.on('opponent_disconnected', () => {
-      // Informational only — server will immediately send battle_complete.
+      // Informational only — server sends battle_complete immediately.
     });
 
     return () => { socket.disconnect(); };
@@ -261,54 +251,81 @@ export default function Home() {
     setAppPhase('idle');
   }
 
-  // ── Complete screen ────────────────────────────────────────────────────────
+  // ── Complete ───────────────────────────────────────────────────────────────
   if (appPhase === 'complete') {
     const socket = getSocket();
     const myScore = finalScores[socket.id ?? ''] ?? battle.myScore;
     const oppScore = Object.entries(finalScores).find(([id]) => id !== socket.id)?.[1] ?? battle.oppScore;
     const iWon = winner === socket.id;
     const tied = winner === null;
-
     const wasForfeit = forfeit !== null;
+
     return (
-      <main className="min-h-screen bg-[#0f0f14] text-white flex flex-col items-center justify-center gap-6 px-4">
-        <h2 className="text-3xl font-bold">
-          {tied ? "Draw" : iWon ? 'Victory' : 'Defeat'}
-        </h2>
-        {wasForfeit && (
-          <p className={`text-sm font-semibold ${iWon ? 'text-green-400' : 'text-yellow-400'}`}>
-            {iWon ? 'Your opponent disconnected. You win!' : 'You disconnected — counted as a loss.'}
-          </p>
-        )}
-        <p className="text-gray-400 text-lg">
-          {myScore} – {oppScore}
-          <span className="text-gray-600 text-sm ml-2">vs {opponent?.displayName}</span>
-        </p>
-        {eloDelta !== null && (
-          <p className={`text-2xl font-bold tabular-nums ${eloDelta >= 0 ? 'text-green-400' : 'text-red-400'}`}>
-            {eloDelta >= 0 ? '+' : ''}{eloDelta} ELO
-            <span className="text-gray-400 text-base font-normal ml-2">→ {myElo}</span>
-          </p>
-        )}
-        <div className="flex gap-4 mt-2">
-          <button
-            onClick={playAgain}
-            className="bg-indigo-600 hover:bg-indigo-500 text-white font-semibold px-6 py-3 transition"
-          >
-            Play Again
-          </button>
-          <button
-            onClick={returnToLobby}
-            className="bg-gray-700 hover:bg-gray-600 text-white font-semibold px-6 py-3 transition"
-          >
-            Return to Lobby
-          </button>
+      <main className="min-h-screen bg-[#0A0A0A] text-[#F5F0E8] flex flex-col items-center justify-center px-4 gap-8">
+        <div className="flex flex-col items-center gap-6 animate-gold-burst">
+          {/* Result heading */}
+          <h2 className={`font-display font-black uppercase tracking-[0.15em] ${
+            tied
+              ? 'text-6xl text-[#F5F0E8]/40'
+              : iWon
+              ? 'text-7xl text-[#C9A84C]'
+              : 'text-7xl text-[#F5F0E8]/25'
+          }`}>
+            {tied ? 'DRAW' : iWon ? 'VICTORY' : 'DEFEAT'}
+          </h2>
+
+          {wasForfeit && (
+            <p className={`text-xs uppercase tracking-widest font-medium ${iWon ? 'text-[#22C55E]' : 'text-[#EF4444]/60'}`}>
+              {iWon ? 'Opponent disconnected — you win' : 'You disconnected — counted as a loss'}
+            </p>
+          )}
+
+          {/* Scores */}
+          <div className="flex items-center gap-8 my-2">
+            <div className="text-center">
+              <p className="text-xs text-[#F5F0E8]/30 uppercase tracking-widest mb-2">{displayName || 'You'}</p>
+              <p className="font-display font-black text-6xl tabular-nums text-[#F5F0E8]">{myScore}</p>
+            </div>
+            <span className="font-display font-black text-3xl text-[#2A2A2A]">—</span>
+            <div className="text-center">
+              <p className="text-xs text-[#F5F0E8]/30 uppercase tracking-widest mb-2">{opponent?.displayName ?? 'Opponent'}</p>
+              <p className="font-display font-black text-6xl tabular-nums text-[#F5F0E8]">{oppScore}</p>
+            </div>
+          </div>
+
+          {/* ELO delta */}
+          {eloDelta !== null && (
+            <div className="flex flex-col items-center gap-1 animate-elo-pop">
+              <p className={`font-display font-black text-4xl tabular-nums ${eloDelta >= 0 ? 'text-[#22C55E]' : 'text-[#EF4444]'}`}>
+                {eloDelta >= 0 ? '+' : ''}{eloDelta}
+              </p>
+              <p className="text-[#F5F0E8]/30 text-xs uppercase tracking-widest">
+                ELO → <span className="text-[#C9A84C] font-bold">{myElo}</span>
+              </p>
+            </div>
+          )}
+
+          {/* Actions */}
+          <div className="flex gap-3 mt-2">
+            <button
+              onClick={playAgain}
+              className="bg-[#C9A84C] hover:bg-[#D4B565] text-[#0A0A0A] font-display font-bold text-sm uppercase tracking-[0.18em] px-8 py-3 transition-colors"
+            >
+              Play Again
+            </button>
+            <button
+              onClick={returnToLobby}
+              className="bg-[#141414] hover:bg-[#1C1C1C] border border-[#2A2A2A] text-[#F5F0E8]/50 hover:text-[#F5F0E8] font-display font-bold text-sm uppercase tracking-[0.18em] px-8 py-3 transition-colors"
+            >
+              Lobby
+            </button>
+          </div>
         </div>
       </main>
     );
   }
 
-  // ── Battle screen ──────────────────────────────────────────────────────────
+  // ── Battle ─────────────────────────────────────────────────────────────────
   if (appPhase === 'battle' && battle.question) {
     const socket = getSocket();
     return (
@@ -324,75 +341,145 @@ export default function Home() {
     );
   }
 
-  // ── Lobby / queue / countdown ──────────────────────────────────────────────
+  // ── Lobby / Queue / Countdown / Finished ───────────────────────────────────
   return (
-    <main className="min-h-screen bg-[#0f0f14] text-white flex flex-col items-center justify-center gap-8 px-4">
-      <h1 className="text-4xl font-bold tracking-tight">Studiem</h1>
+    <>
+      {(appPhase === 'idle' || appPhase === 'queuing') && (
+        <NavBar displayName={displayName} elo={myElo} subject={appPhase === 'idle' ? subject : undefined} />
+      )}
 
-      {appPhase === 'idle' && (
-        <div className="flex flex-col items-center gap-5 w-full max-w-sm">
-          {displayName && (
-            <p className="text-gray-400 text-sm">
-              <strong className="text-white">{displayName}</strong>
-              {myElo !== null && <span className="ml-2 text-yellow-400 font-semibold">{myElo} ELO</span>}
+      <main className="min-h-screen bg-[#0A0A0A] text-[#F5F0E8] flex flex-col items-center justify-center px-4 pt-12">
+
+        {/* ── Idle ── */}
+        {appPhase === 'idle' && (
+          <div className="flex flex-col items-center gap-7 w-full max-w-sm animate-fade-up">
+            <div className="text-center">
+              <h1 className="font-display font-black text-5xl uppercase tracking-[0.2em] text-[#C9A84C]">
+                STUDIEM
+              </h1>
+              {displayName && (
+                <p className="text-[#F5F0E8]/30 text-xs uppercase tracking-widest mt-2">
+                  Welcome back, {displayName}
+                </p>
+              )}
+            </div>
+
+            {/* Subject */}
+            <div className="w-full">
+              <p className="text-xs text-[#F5F0E8]/25 uppercase tracking-widest mb-3">Select Subject</p>
+              <div className="flex flex-col gap-1">
+                {MVP_SUBJECTS.map(s => (
+                  <button
+                    key={s}
+                    onClick={() => setSubject(s)}
+                    className={`w-full text-left px-4 py-3 text-sm transition-all border ${
+                      subject === s
+                        ? 'border-[#C9A84C] bg-[#C9A84C]/10 text-[#C9A84C] font-semibold'
+                        : 'border-[#2A2A2A] bg-[#141414] text-[#F5F0E8]/45 hover:border-[#C9A84C]/30 hover:text-[#F5F0E8]/80'
+                    }`}
+                  >
+                    {s}
+                    {s !== 'AP Chemistry' && (
+                      <span className="ml-2 text-xs text-[#F5F0E8]/20">Coming soon</span>
+                    )}
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            <button
+              onClick={joinQueue}
+              disabled={!displayName || subject !== 'AP Chemistry'}
+              className="w-full bg-[#C9A84C] hover:bg-[#D4B565] disabled:opacity-30 text-[#0A0A0A] font-display font-black text-xl uppercase tracking-[0.2em] py-4 transition-colors"
+            >
+              Find Match
+            </button>
+
+            <button
+              onClick={handleSignOut}
+              className="text-[#F5F0E8]/20 hover:text-[#F5F0E8]/50 text-xs uppercase tracking-widest transition-colors"
+            >
+              Sign out
+            </button>
+          </div>
+        )}
+
+        {/* ── Queuing ── */}
+        {appPhase === 'queuing' && (
+          <div className="flex flex-col items-center gap-5 animate-fade-up">
+            <p className="font-display font-bold text-3xl uppercase tracking-wider text-[#F5F0E8]/50">
+              Finding Opponent
             </p>
-          )}
+            <p className="text-[#C9A84C] text-xs uppercase tracking-widest">{subject}</p>
+            <div className="flex gap-2 mt-2">
+              <span className="w-2 h-2 bg-[#C9A84C] dot-1" />
+              <span className="w-2 h-2 bg-[#C9A84C] dot-2" />
+              <span className="w-2 h-2 bg-[#C9A84C] dot-3" />
+            </div>
+            <button
+              onClick={leaveQueue}
+              className="mt-4 text-[#F5F0E8]/20 hover:text-[#F5F0E8]/50 text-xs uppercase tracking-widest transition-colors"
+            >
+              Cancel
+            </button>
+          </div>
+        )}
 
-          {/* Subject picker */}
-          <div className="w-full">
-            <label className="block text-xs text-gray-500 mb-1 uppercase tracking-wider">Subject</label>
-            <div className="flex flex-col gap-1">
-              {MVP_SUBJECTS.map(s => (
-                <button
-                  key={s}
-                  onClick={() => setSubject(s)}
-                  className={`text-left px-4 py-2 text-sm transition ${
-                    subject === s
-                      ? 'bg-indigo-600 text-white'
-                      : 'bg-gray-800 text-gray-400 hover:bg-gray-700 hover:text-white'
-                  }`}
-                >
-                  {s}
-                  {s !== 'AP Chemistry' && <span className="ml-2 text-xs text-gray-600">Coming soon</span>}
-                </button>
-              ))}
+        {/* ── Countdown ── */}
+        {appPhase === 'countdown' && (
+          <div className="flex flex-col items-center gap-8">
+            <div className="text-center">
+              <p className="text-xs text-[#F5F0E8]/25 uppercase tracking-widest mb-3">Now Battling</p>
+              <p className="font-display font-black text-2xl uppercase tracking-wider text-[#F5F0E8]">
+                {opponent?.displayName}
+              </p>
+              {opponentElo !== null && (
+                <p className="text-[#C9A84C] text-sm font-bold mt-1 tabular-nums">{opponentElo} ELO</p>
+              )}
+            </div>
+            <p
+              key={countdown}
+              className="font-display font-black text-[10rem] leading-none text-[#C9A84C] tabular-nums animate-countdown select-none"
+            >
+              {countdown}
+            </p>
+          </div>
+        )}
+
+        {/* ── Finished (you answered all, waiting for opponent) ── */}
+        {appPhase === 'finished' && (
+          <div className="flex flex-col items-center gap-6 animate-fade-up">
+            <p className="font-display font-bold text-2xl uppercase tracking-wider text-[#F5F0E8]/40">
+              All Done
+            </p>
+            <p className="text-[#F5F0E8]/25 text-xs uppercase tracking-widest">Waiting for opponent to finish</p>
+
+            <div className="flex items-center gap-10 my-4">
+              <div className="text-center">
+                <p className="text-xs text-[#F5F0E8]/30 uppercase tracking-widest mb-2">{displayName || 'You'}</p>
+                <p className="font-display font-black text-6xl tabular-nums text-[#F5F0E8]">{battle.myScore}</p>
+                {myElo !== null && (
+                  <p className="text-[#C9A84C] text-xs font-bold mt-1 tabular-nums">{myElo} ELO</p>
+                )}
+              </div>
+              <span className="font-display font-black text-3xl text-[#2A2A2A]">vs</span>
+              <div className="text-center">
+                <p className="text-xs text-[#F5F0E8]/30 uppercase tracking-widest mb-2">{opponent?.displayName}</p>
+                <p className="font-display font-black text-6xl tabular-nums text-[#F5F0E8]">{battle.oppScore}</p>
+                {opponentElo !== null && (
+                  <p className="text-[#C9A84C] text-xs font-bold mt-1 tabular-nums">{opponentElo} ELO</p>
+                )}
+              </div>
+            </div>
+
+            <div className="flex gap-2">
+              <span className="w-2 h-2 bg-[#C9A84C] dot-1" />
+              <span className="w-2 h-2 bg-[#C9A84C] dot-2" />
+              <span className="w-2 h-2 bg-[#C9A84C] dot-3" />
             </div>
           </div>
-
-          <button
-            onClick={joinQueue}
-            disabled={!displayName || subject !== 'AP Chemistry'}
-            className="w-full bg-indigo-600 hover:bg-indigo-500 disabled:opacity-40 text-white font-bold px-8 py-3 transition tracking-wide"
-          >
-            Find Match
-          </button>
-
-          <div className="flex gap-4 text-xs text-gray-600">
-            <Link href="/profile" className="hover:text-gray-400 transition">Profile</Link>
-            <Link href="/leaderboard" className="hover:text-gray-400 transition">Leaderboard</Link>
-            <button onClick={handleSignOut} className="hover:text-gray-400 transition">Sign out</button>
-          </div>
-        </div>
-      )}
-
-      {appPhase === 'queuing' && (
-        <div className="flex flex-col items-center gap-4">
-          <p className="text-gray-400 animate-pulse">Searching for opponent in {subject}…</p>
-          <button onClick={leaveQueue} className="text-sm text-gray-500 hover:text-gray-300 transition">Cancel</button>
-        </div>
-      )}
-
-      {appPhase === 'countdown' && (
-        <div className="flex flex-col items-center gap-4">
-          <p className="text-gray-400">
-            vs <span className="text-white font-semibold">{opponent?.displayName}</span>
-            {opponentElo !== null && (
-              <span className="ml-2 text-yellow-400 font-semibold">{opponentElo} ELO</span>
-            )}
-          </p>
-          <p className="text-7xl font-bold text-indigo-400 tabular-nums">{countdown}</p>
-        </div>
-      )}
-    </main>
+        )}
+      </main>
+    </>
   );
 }

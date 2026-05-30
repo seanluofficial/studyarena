@@ -1,6 +1,7 @@
 import { redirect } from 'next/navigation';
 import Link from 'next/link';
 import { createClient } from '@/lib/supabase/server';
+import NavBar from '@/components/NavBar';
 
 const MVP_SUBJECTS = [
   'AP Biology',
@@ -37,10 +38,11 @@ export default async function ProfilePage() {
   const eloRows = eloRes.data ?? [];
   const recentBattles = battlesRes.data ?? [];
 
-  // Collect opponent IDs and look up display names
   const opponentIds = [
     ...new Set(
-      recentBattles.map(b => (b.player1_id === user.id ? b.player2_id : b.player1_id)).filter(Boolean)
+      recentBattles
+        .map(b => (b.player1_id === user.id ? b.player2_id : b.player1_id))
+        .filter(Boolean)
     ),
   ] as string[];
 
@@ -54,87 +56,119 @@ export default async function ProfilePage() {
 
   const eloMap = Object.fromEntries(eloRows.map(r => [r.subject, r.rating]));
 
-  let wins = 0, losses = 0, draws = 0;
+  let wins = 0, losses = 0;
   for (const b of recentBattles) {
     if (b.winner_id === user.id) wins++;
-    else if (b.winner_id === null) draws++;
-    else losses++;
+    else if (b.winner_id !== null) losses++;
   }
 
   const initials = profile?.display_name?.slice(0, 2).toUpperCase() ?? '??';
+  const topElo = eloRows.length > 0 ? Math.max(...eloRows.map(r => r.rating)) : null;
 
   return (
-    <main className="min-h-screen bg-[#0f0f14] text-white px-4 py-10 flex flex-col items-center gap-8">
-      <div className="w-full max-w-xl">
-        <Link href="/" className="text-gray-600 hover:text-gray-400 text-sm transition">← Back</Link>
-      </div>
-
-      {/* Avatar + name */}
-      <div className="flex flex-col items-center gap-3">
-        <div className="w-16 h-16 bg-indigo-700 flex items-center justify-center text-2xl font-bold">
-          {initials}
+    <>
+      <NavBar displayName={profile?.display_name} elo={topElo} />
+      <main className="min-h-screen bg-[#0A0A0A] text-[#F5F0E8] px-5 pt-20 pb-12 flex flex-col items-center gap-8">
+        <div className="w-full max-w-xl">
+          <Link href="/" className="text-[#F5F0E8]/25 hover:text-[#F5F0E8]/60 text-xs uppercase tracking-widest transition-colors">
+            ← Back
+          </Link>
         </div>
-        <h1 className="text-2xl font-bold">{profile?.display_name ?? '—'}</h1>
-        <div className="flex gap-6 text-sm text-gray-400">
-          <span>🔥 Streak: <strong className="text-white">{profile?.current_streak ?? 0}</strong></span>
-          <span>Best: <strong className="text-white">{profile?.longest_streak ?? 0}</strong></span>
-        </div>
-        <div className="flex gap-6 text-sm">
-          <span className="text-green-400 font-semibold">{wins}W</span>
-          <span className="text-red-400 font-semibold">{losses}L</span>
-          <span className="text-gray-500">{draws}D</span>
-        </div>
-      </div>
 
-      {/* ELO per subject */}
-      <div className="w-full max-w-xl">
-        <h2 className="text-xs text-gray-600 uppercase tracking-wider mb-3">ELO Ratings</h2>
-        <div className="flex flex-col gap-1">
-          {MVP_SUBJECTS.map(s => (
-            <div key={s} className="flex justify-between items-center bg-gray-900 px-4 py-2 text-sm">
-              <span className="text-gray-300">{s}</span>
-              <span className="text-yellow-400 font-semibold tabular-nums">
-                {eloMap[s] ?? 1000}
-              </span>
-            </div>
-          ))}
-        </div>
-      </div>
-
-      {/* Recent battles */}
-      <div className="w-full max-w-xl">
-        <h2 className="text-xs text-gray-600 uppercase tracking-wider mb-3">Recent Battles</h2>
-        {recentBattles.length === 0 ? (
-          <p className="text-gray-600 text-sm">No battles yet.</p>
-        ) : (
-          <div className="flex flex-col gap-1">
-            {recentBattles.map(b => {
-              const oppId = b.player1_id === user.id ? b.player2_id : b.player1_id;
-              const opponentName = oppId ? (opponentNameMap[oppId] ?? 'Unknown') : 'Unknown';
-
-              const scoresObj = b.scores as Record<string, number> | null;
-              const myScore = scoresObj?.[user.id] ?? 0;
-              const oppScore = oppId ? (scoresObj?.[oppId] ?? 0) : 0;
-
-              let result = 'Draw';
-              let resultCls = 'text-gray-500';
-              if (b.winner_id === user.id) { result = 'Win'; resultCls = 'text-green-400'; }
-              else if (b.winner_id !== null) { result = 'Loss'; resultCls = 'text-red-400'; }
-
-              return (
-                <div key={b.id} className="flex justify-between items-center bg-gray-900 px-4 py-2 text-sm">
-                  <span className={`font-semibold w-12 ${resultCls}`}>{result}</span>
-                  <span className="text-gray-400 flex-1 truncate mx-3">vs {opponentName}</span>
-                  <span className="text-gray-300 tabular-nums mr-3">{myScore}–{oppScore}</span>
-                  <span className="text-gray-600 text-xs">
-                    {new Date(b.created_at).toLocaleDateString()}
-                  </span>
-                </div>
-              );
-            })}
+        {/* Avatar + name */}
+        <div className="flex flex-col items-center gap-4">
+          <div className="w-16 h-16 bg-[#141414] border border-[#C9A84C]/40 flex items-center justify-center">
+            <span className="font-display font-black text-2xl text-[#C9A84C]">{initials}</span>
           </div>
-        )}
-      </div>
-    </main>
+          <h1 className="font-display font-black text-3xl uppercase tracking-wider text-[#F5F0E8]">
+            {profile?.display_name ?? '—'}
+          </h1>
+
+          {/* Stats row */}
+          <div className="flex items-center gap-6 text-sm">
+            <div className="text-center">
+              <p className="font-display font-black text-2xl text-[#22C55E]">{wins}</p>
+              <p className="text-[#F5F0E8]/30 text-xs uppercase tracking-widest">Wins</p>
+            </div>
+            <div className="w-px h-8 bg-[#2A2A2A]" />
+            <div className="text-center">
+              <p className="font-display font-black text-2xl text-[#EF4444]">{losses}</p>
+              <p className="text-[#F5F0E8]/30 text-xs uppercase tracking-widest">Losses</p>
+            </div>
+            <div className="w-px h-8 bg-[#2A2A2A]" />
+            <div className="text-center">
+              <p className="font-display font-black text-2xl text-[#C9A84C]">{profile?.current_streak ?? 0}</p>
+              <p className="text-[#F5F0E8]/30 text-xs uppercase tracking-widest">Streak</p>
+            </div>
+            <div className="w-px h-8 bg-[#2A2A2A]" />
+            <div className="text-center">
+              <p className="font-display font-black text-2xl text-[#F5F0E8]/50">{profile?.longest_streak ?? 0}</p>
+              <p className="text-[#F5F0E8]/30 text-xs uppercase tracking-widest">Best</p>
+            </div>
+          </div>
+        </div>
+
+        {/* ELO ratings */}
+        <div className="w-full max-w-xl">
+          <p className="text-xs text-[#F5F0E8]/25 uppercase tracking-widest mb-3">ELO Ratings</p>
+          <div className="flex flex-col gap-px">
+            {MVP_SUBJECTS.map(s => (
+              <div
+                key={s}
+                className="flex justify-between items-center bg-[#141414] border border-[#2A2A2A] px-4 py-3"
+              >
+                <span className="text-[#F5F0E8]/60 text-sm">{s}</span>
+                <span className="font-display font-bold text-lg text-[#C9A84C] tabular-nums">
+                  {eloMap[s] ?? 1000}
+                </span>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Recent battles */}
+        <div className="w-full max-w-xl">
+          <p className="text-xs text-[#F5F0E8]/25 uppercase tracking-widest mb-3">Recent Battles</p>
+          {recentBattles.length === 0 ? (
+            <p className="text-[#F5F0E8]/20 text-sm">No battles yet.</p>
+          ) : (
+            <div className="flex flex-col gap-px">
+              {recentBattles.map(b => {
+                const oppId = b.player1_id === user.id ? b.player2_id : b.player1_id;
+                const opponentName = oppId ? (opponentNameMap[oppId] ?? 'Unknown') : 'Unknown';
+                const scoresObj = b.scores as Record<string, number> | null;
+                const myScore = scoresObj?.[user.id] ?? 0;
+                const oppScore = oppId ? (scoresObj?.[oppId] ?? 0) : 0;
+
+                const isWin  = b.winner_id === user.id;
+                const isLoss = b.winner_id !== null && b.winner_id !== user.id;
+
+                return (
+                  <div
+                    key={b.id}
+                    className={`flex items-center bg-[#141414] border px-4 py-3 gap-4 ${
+                      isWin ? 'border-l-[#22C55E] border-l-2 border-[#1C1C1C]'
+                      : isLoss ? 'border-l-[#EF4444] border-l-2 border-[#1C1C1C]'
+                      : 'border-[#2A2A2A]'
+                    }`}
+                  >
+                    <span className={`font-display font-bold text-sm w-10 ${
+                      isWin ? 'text-[#22C55E]' : isLoss ? 'text-[#EF4444]' : 'text-[#F5F0E8]/30'
+                    }`}>
+                      {isWin ? 'WIN' : isLoss ? 'LOSS' : 'DRAW'}
+                    </span>
+                    <span className="text-[#F5F0E8]/50 text-sm flex-1 truncate">vs {opponentName}</span>
+                    <span className="text-[#F5F0E8]/60 text-sm tabular-nums font-medium">{myScore}–{oppScore}</span>
+                    <span className="text-[#F5F0E8]/20 text-xs tabular-nums">
+                      {new Date(b.created_at).toLocaleDateString()}
+                    </span>
+                  </div>
+                );
+              })}
+            </div>
+          )}
+        </div>
+      </main>
+    </>
   );
 }

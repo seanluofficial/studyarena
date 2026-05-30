@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { createClient } from '@/lib/supabase/server';
+import NavBar from '@/components/NavBar';
 
 const MVP_SUBJECTS = [
   'AP Biology',
@@ -20,9 +21,17 @@ interface PageProps {
   searchParams: Promise<{ subject?: string }>;
 }
 
+const RANK_STYLES: Record<number, { text: string; bg: string }> = {
+  1: { text: 'text-[#C9A84C]',   bg: 'bg-[#C9A84C]/10 border-[#C9A84C]/30' },
+  2: { text: 'text-[#9CA3AF]',   bg: 'bg-[#9CA3AF]/10 border-[#9CA3AF]/20' },
+  3: { text: 'text-[#CD7F32]',   bg: 'bg-[#CD7F32]/10 border-[#CD7F32]/20' },
+};
+
 export default async function LeaderboardPage({ searchParams }: PageProps) {
   const { subject: subjectParam } = await searchParams;
-  const subject = MVP_SUBJECTS.includes(subjectParam ?? '') ? (subjectParam ?? MVP_SUBJECTS[0]) : MVP_SUBJECTS[0];
+  const subject = MVP_SUBJECTS.includes(subjectParam ?? '')
+    ? (subjectParam ?? MVP_SUBJECTS[0])
+    : MVP_SUBJECTS[0];
 
   const supabase = await createClient();
   const { data: rows } = await supabase
@@ -33,69 +42,87 @@ export default async function LeaderboardPage({ searchParams }: PageProps) {
     .limit(50);
 
   const entries: LeaderboardEntry[] = (rows ?? []).map(r => ({
-    rank: r.rank as number,
+    rank:         r.rank as number,
     display_name: r.display_name as string,
-    rating: r.rating as number,
-    user_id: r.user_id as string,
+    rating:       r.rating as number,
+    user_id:      r.user_id as string,
   }));
 
   return (
-    <main className="min-h-screen bg-[#0f0f14] text-white px-4 py-10 flex flex-col items-center gap-6">
-      <div className="w-full max-w-xl">
-        <Link href="/" className="text-gray-600 hover:text-gray-400 text-sm transition">← Back</Link>
-      </div>
-
-      <h1 className="text-2xl font-bold tracking-tight">Leaderboard</h1>
-
-      {/* Subject tabs */}
-      <div className="w-full max-w-xl flex flex-wrap gap-1">
-        {MVP_SUBJECTS.map(s => (
-          <Link
-            key={s}
-            href={`/leaderboard?subject=${encodeURIComponent(s)}`}
-            className={`px-3 py-1 text-sm transition ${
-              s === subject
-                ? 'bg-indigo-600 text-white'
-                : 'bg-gray-800 text-gray-400 hover:bg-gray-700 hover:text-white'
-            }`}
-          >
-            {s.replace('AP ', '')}
+    <>
+      <NavBar />
+      <main className="min-h-screen bg-[#0A0A0A] text-[#F5F0E8] px-5 pt-20 pb-12 flex flex-col items-center gap-6">
+        <div className="w-full max-w-xl">
+          <Link href="/" className="text-[#F5F0E8]/25 hover:text-[#F5F0E8]/60 text-xs uppercase tracking-widest transition-colors">
+            ← Back
           </Link>
-        ))}
-      </div>
+        </div>
 
-      {/* Table */}
-      <div className="w-full max-w-xl">
-        {entries.length === 0 ? (
-          <p className="text-gray-600 text-sm text-center py-8">No ratings yet for {subject}.</p>
-        ) : (
-          <div className="flex flex-col gap-px">
-            <div className="flex text-xs text-gray-600 uppercase tracking-wider px-4 py-2">
-              <span className="w-10">#</span>
-              <span className="flex-1">Player</span>
-              <span className="w-20 text-right">ELO</span>
-            </div>
-            {entries.map((entry, i) => (
-              <div
-                key={entry.user_id}
-                className={`flex items-center px-4 py-3 text-sm ${
-                  i === 0 ? 'bg-yellow-900/30' : i === 1 ? 'bg-gray-700/40' : i === 2 ? 'bg-orange-900/20' : 'bg-gray-900'
+        <div className="w-full max-w-xl">
+          <h1 className="font-display font-black text-4xl uppercase tracking-wider text-[#F5F0E8] mb-6">
+            Leaderboard
+          </h1>
+
+          {/* Subject tabs */}
+          <div className="flex flex-wrap gap-1 mb-6">
+            {MVP_SUBJECTS.map(s => (
+              <Link
+                key={s}
+                href={`/leaderboard?subject=${encodeURIComponent(s)}`}
+                className={`px-3 py-1.5 text-xs uppercase tracking-widest transition-colors ${
+                  s === subject
+                    ? 'bg-[#C9A84C] text-[#0A0A0A] font-bold'
+                    : 'bg-[#141414] border border-[#2A2A2A] text-[#F5F0E8]/40 hover:border-[#C9A84C]/30 hover:text-[#F5F0E8]/70'
                 }`}
               >
-                <span className={`w-10 font-bold tabular-nums ${
-                  i === 0 ? 'text-yellow-400' : i === 1 ? 'text-gray-300' : i === 2 ? 'text-orange-400' : 'text-gray-600'
-                }`}>
-                  {entry.rank}
-                </span>
-                <span className="flex-1 text-gray-200">{entry.display_name}</span>
-                <span className="w-20 text-right text-yellow-400 font-semibold tabular-nums">
-                  {entry.rating}
-                </span>
-              </div>
+                {s.replace('AP ', '')}
+              </Link>
             ))}
           </div>
-        )}
-      </div>
-    </main>
+
+          {/* Table */}
+          {entries.length === 0 ? (
+            <p className="text-[#F5F0E8]/20 text-sm text-center py-12">
+              No ratings yet for {subject}.
+            </p>
+          ) : (
+            <div className="flex flex-col gap-px">
+              {/* Header */}
+              <div className="flex text-xs text-[#F5F0E8]/20 uppercase tracking-widest px-4 py-2">
+                <span className="w-10">#</span>
+                <span className="flex-1">Player</span>
+                <span className="w-20 text-right">ELO</span>
+              </div>
+
+              {entries.map((entry) => {
+                const rankStyle = RANK_STYLES[entry.rank];
+                return (
+                  <div
+                    key={entry.user_id}
+                    className={`flex items-center px-4 py-3 border ${
+                      rankStyle
+                        ? `${rankStyle.bg}`
+                        : 'bg-[#141414] border-[#2A2A2A]'
+                    }`}
+                  >
+                    <span className={`w-10 font-display font-black text-lg tabular-nums ${
+                      rankStyle ? rankStyle.text : 'text-[#F5F0E8]/20'
+                    }`}>
+                      {entry.rank}
+                    </span>
+                    <span className="flex-1 text-[#F5F0E8]/80 text-sm">{entry.display_name}</span>
+                    <span className={`w-20 text-right font-display font-bold text-lg tabular-nums ${
+                      rankStyle ? rankStyle.text : 'text-[#F5F0E8]/50'
+                    }`}>
+                      {entry.rating}
+                    </span>
+                  </div>
+                );
+              })}
+            </div>
+          )}
+        </div>
+      </main>
+    </>
   );
 }
