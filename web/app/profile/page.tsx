@@ -2,6 +2,9 @@ import { redirect } from 'next/navigation';
 import Link from 'next/link';
 import { createClient } from '@/lib/supabase/server';
 import NavBar from '@/components/NavBar';
+import RankBadge from '@/components/RankBadge';
+import Panel from '@/components/ui/Panel';
+import { eloToTier } from '@/lib/rank';
 
 const MVP_SUBJECTS = [
   'AP Biology',
@@ -64,76 +67,143 @@ export default async function ProfilePage() {
 
   const initials = profile?.display_name?.slice(0, 2).toUpperCase() ?? '??';
   const topElo = eloRows.length > 0 ? Math.max(...eloRows.map(r => r.rating)) : null;
+  const topTier = eloToTier(topElo ?? 1000);
 
   return (
     <>
       <NavBar displayName={profile?.display_name} elo={topElo} />
-      <main className="min-h-screen bg-[#0A0A0A] text-[#F5F0E8] px-5 pt-20 pb-12 flex flex-col items-center gap-8">
-        <div className="w-full max-w-xl">
-          <Link href="/" className="text-[#F5F0E8]/25 hover:text-[#F5F0E8]/60 text-xs uppercase tracking-widest transition-colors">
+      <main className="min-h-screen bg-transparent text-[#F5F0E8] px-5 pt-20 pb-16 flex flex-col items-center gap-8">
+        <div className="w-full max-w-2xl relative z-10">
+          <Link
+            href="/"
+            className="text-[#F5F0E8]/25 hover:text-[#F5F0E8]/60 text-xs uppercase tracking-widest transition-colors"
+          >
             ← Back
           </Link>
         </div>
 
-        {/* Avatar + name */}
-        <div className="flex flex-col items-center gap-4">
-          <div className="w-16 h-16 bg-[#141414] border border-[#C9A84C]/40 flex items-center justify-center">
-            <span className="font-display font-black text-2xl text-[#C9A84C]">{initials}</span>
-          </div>
-          <h1 className="font-display font-black text-3xl uppercase tracking-wider text-[#F5F0E8]">
-            {profile?.display_name ?? '—'}
-          </h1>
-
-          {/* Stats row */}
-          <div className="flex items-center gap-6 text-sm">
-            <div className="text-center">
-              <p className="font-display font-black text-2xl text-[#22C55E]">{wins}</p>
-              <p className="text-[#F5F0E8]/30 text-xs uppercase tracking-widest">Wins</p>
-            </div>
-            <div className="w-px h-8 bg-[#2A2A2A]" />
-            <div className="text-center">
-              <p className="font-display font-black text-2xl text-[#EF4444]">{losses}</p>
-              <p className="text-[#F5F0E8]/30 text-xs uppercase tracking-widest">Losses</p>
-            </div>
-            <div className="w-px h-8 bg-[#2A2A2A]" />
-            <div className="text-center">
-              <p className="font-display font-black text-2xl text-[#C9A84C]">{profile?.current_streak ?? 0}</p>
-              <p className="text-[#F5F0E8]/30 text-xs uppercase tracking-widest">Streak</p>
-            </div>
-            <div className="w-px h-8 bg-[#2A2A2A]" />
-            <div className="text-center">
-              <p className="font-display font-black text-2xl text-[#F5F0E8]/50">{profile?.longest_streak ?? 0}</p>
-              <p className="text-[#F5F0E8]/30 text-xs uppercase tracking-widest">Best</p>
-            </div>
-          </div>
-        </div>
-
-        {/* ELO ratings */}
-        <div className="w-full max-w-xl">
-          <p className="text-xs text-[#F5F0E8]/25 uppercase tracking-widest mb-3">ELO Ratings</p>
-          <div className="flex flex-col gap-px">
-            {MVP_SUBJECTS.map(s => (
+        {/* ── Career header ─────────────────────────────────────────── */}
+        <Panel
+          variant="raised"
+          accent
+          className="w-full max-w-2xl relative z-10 animate-rise-in overflow-hidden"
+        >
+          <div className="glow-focus" aria-hidden="true" />
+          <div className="relative p-7 sm:p-8">
+            <div className="flex items-center gap-5">
+              {/* Avatar */}
               <div
-                key={s}
-                className="flex justify-between items-center bg-[#141414] border border-[#2A2A2A] px-4 py-3"
+                className="w-20 h-20 flex-shrink-0 bg-[#0A0A0A] flex items-center justify-center"
+                style={{ border: `1px solid ${topTier.color}` }}
               >
-                <span className="text-[#F5F0E8]/60 text-sm">{s}</span>
-                <span className="font-display font-bold text-lg text-[#C9A84C] tabular-nums">
-                  {eloMap[s] ?? 1000}
+                <span
+                  className="font-display font-black text-3xl tracking-wide"
+                  style={{ color: topTier.color }}
+                >
+                  {initials}
                 </span>
               </div>
-            ))}
-          </div>
-        </div>
 
-        {/* Recent battles */}
-        <div className="w-full max-w-xl">
-          <p className="text-xs text-[#F5F0E8]/25 uppercase tracking-widest mb-3">Recent Battles</p>
+              {/* Name + rank */}
+              <div className="min-w-0 flex flex-col gap-2.5">
+                <p className="text-[#F5F0E8]/30 text-[10px] uppercase tracking-[0.3em]">
+                  Player Profile
+                </p>
+                <h1 className="font-display font-black text-3xl sm:text-4xl uppercase tracking-wider text-[#F5F0E8] truncate leading-none">
+                  {profile?.display_name ?? '—'}
+                </h1>
+                <RankBadge elo={topElo} size="lg" className="self-start mt-0.5" />
+              </div>
+            </div>
+
+            <div className="rule-gold my-7" />
+
+            {/* Stat blocks */}
+            <div className="grid grid-cols-4 gap-px bg-[#2A2A2A] border border-[#2A2A2A]">
+              {[
+                { label: 'Wins',   value: wins,                        color: '#22C55E' },
+                { label: 'Losses', value: losses,                      color: '#EF4444' },
+                { label: 'Streak', value: profile?.current_streak ?? 0, color: '#C9A84C' },
+                { label: 'Best',   value: profile?.longest_streak ?? 0, color: 'rgba(245,240,232,0.5)' },
+              ].map(stat => (
+                <div
+                  key={stat.label}
+                  className="bg-[#141414] px-3 py-4 flex flex-col items-center gap-1"
+                >
+                  <p
+                    className="font-display font-black text-3xl tabular-nums leading-none"
+                    style={{ color: stat.color }}
+                  >
+                    {stat.value}
+                  </p>
+                  <p className="text-[#F5F0E8]/30 text-[10px] uppercase tracking-[0.2em]">
+                    {stat.label}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </Panel>
+
+        {/* ── Per-subject ELO ───────────────────────────────────────── */}
+        <section className="w-full max-w-2xl relative z-10 animate-rise-in" style={{ animationDelay: '0.06s' }}>
+          <div className="flex items-center gap-3 mb-3">
+            <p className="text-xs text-[#F5F0E8]/40 uppercase tracking-[0.2em]">Subject Ratings</p>
+            <div className="flex-1 rule-gold" />
+          </div>
+          <Panel className="flex flex-col">
+            {MVP_SUBJECTS.map((s, i) => {
+              const rating = eloMap[s] ?? 1000;
+              const tier = eloToTier(rating);
+              return (
+                <div
+                  key={s}
+                  className={`flex justify-between items-center px-4 py-3.5 gap-4 ${
+                    i > 0 ? 'border-t border-[#2A2A2A]' : ''
+                  }`}
+                >
+                  <div className="flex items-center gap-3 min-w-0">
+                    <span
+                      className="inline-block w-1 h-7 flex-shrink-0"
+                      style={{ backgroundColor: tier.color }}
+                      aria-hidden="true"
+                    />
+                    <span className="text-[#F5F0E8]/75 text-sm font-display font-bold uppercase tracking-wide truncate">
+                      {s}
+                    </span>
+                  </div>
+                  <div className="flex items-center gap-4 flex-shrink-0">
+                    <span
+                      className="font-display font-bold text-[11px] uppercase tracking-[0.18em] hidden sm:inline"
+                      style={{ color: tier.color }}
+                    >
+                      {tier.name}
+                    </span>
+                    <span className="font-display font-black text-xl text-[#F5F0E8] tabular-nums w-14 text-right">
+                      {rating}
+                    </span>
+                  </div>
+                </div>
+              );
+            })}
+          </Panel>
+        </section>
+
+        {/* ── Match history ─────────────────────────────────────────── */}
+        <section className="w-full max-w-2xl relative z-10 animate-rise-in" style={{ animationDelay: '0.12s' }}>
+          <div className="flex items-center gap-3 mb-3">
+            <p className="text-xs text-[#F5F0E8]/40 uppercase tracking-[0.2em]">Match History</p>
+            <div className="flex-1 rule-gold" />
+          </div>
           {recentBattles.length === 0 ? (
-            <p className="text-[#F5F0E8]/20 text-sm">No battles yet.</p>
+            <Panel className="px-4 py-8 text-center">
+              <p className="text-[#F5F0E8]/25 text-sm uppercase tracking-widest font-display">
+                No battles yet
+              </p>
+            </Panel>
           ) : (
-            <div className="flex flex-col gap-px">
-              {recentBattles.map(b => {
+            <Panel className="flex flex-col">
+              {recentBattles.map((b, i) => {
                 const oppId = b.player1_id === user.id ? b.player2_id : b.player1_id;
                 const opponentName = oppId ? (opponentNameMap[oppId] ?? 'Unknown') : 'Unknown';
                 const scoresObj = b.scores as Record<string, number> | null;
@@ -143,31 +213,43 @@ export default async function ProfilePage() {
                 const isWin  = b.winner_id === user.id;
                 const isLoss = b.winner_id !== null && b.winner_id !== user.id;
 
+                const edge = isWin ? '#22C55E' : isLoss ? '#EF4444' : '#374151';
+                const resultColor = isWin ? '#22C55E' : isLoss ? '#EF4444' : 'rgba(245,240,232,0.3)';
+
                 return (
                   <div
                     key={b.id}
-                    className={`flex items-center bg-[#141414] border px-4 py-3 gap-4 ${
-                      isWin ? 'border-l-[#22C55E] border-l-2 border-[#1C1C1C]'
-                      : isLoss ? 'border-l-[#EF4444] border-l-2 border-[#1C1C1C]'
-                      : 'border-[#2A2A2A]'
+                    className={`flex items-center px-4 py-3.5 gap-4 ${
+                      i > 0 ? 'border-t border-[#2A2A2A]' : ''
                     }`}
+                    style={{ borderLeft: `3px solid ${edge}` }}
                   >
-                    <span className={`font-display font-bold text-sm w-10 ${
-                      isWin ? 'text-[#22C55E]' : isLoss ? 'text-[#EF4444]' : 'text-[#F5F0E8]/30'
-                    }`}>
+                    <span
+                      className="font-display font-black text-sm uppercase tracking-[0.15em] w-12 flex-shrink-0"
+                      style={{ color: resultColor }}
+                    >
                       {isWin ? 'WIN' : isLoss ? 'LOSS' : 'DRAW'}
                     </span>
-                    <span className="text-[#F5F0E8]/50 text-sm flex-1 truncate">vs {opponentName}</span>
-                    <span className="text-[#F5F0E8]/60 text-sm tabular-nums font-medium">{myScore}–{oppScore}</span>
-                    <span className="text-[#F5F0E8]/20 text-xs tabular-nums">
+                    <div className="flex-1 min-w-0 flex flex-col">
+                      <span className="text-[#F5F0E8]/70 text-sm truncate">
+                        <span className="text-[#F5F0E8]/30">vs</span> {opponentName}
+                      </span>
+                      <span className="text-[#F5F0E8]/30 text-[11px] uppercase tracking-wide truncate">
+                        {b.subject}
+                      </span>
+                    </div>
+                    <span className="font-display font-black text-lg text-[#F5F0E8] tabular-nums flex-shrink-0">
+                      {myScore}<span className="text-[#F5F0E8]/25 px-0.5">–</span>{oppScore}
+                    </span>
+                    <span className="text-[#F5F0E8]/20 text-xs tabular-nums w-20 text-right flex-shrink-0">
                       {new Date(b.created_at).toLocaleDateString()}
                     </span>
                   </div>
                 );
               })}
-            </div>
+            </Panel>
           )}
-        </div>
+        </section>
       </main>
     </>
   );

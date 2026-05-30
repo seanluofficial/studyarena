@@ -49,45 +49,85 @@ export default function CreateChallengePage() {
   }
 
   return (
-    <main className="min-h-screen bg-[#0f0f14] text-white flex flex-col items-center justify-center gap-6 px-4">
-      <div className="w-full max-w-sm">
-        <Link href="/" className="text-gray-600 hover:text-gray-400 text-sm transition">← Back</Link>
-      </div>
-      <h1 className="text-2xl font-bold">Create Challenge</h1>
-      <p className="text-gray-500 text-sm text-center max-w-sm">
-        Play 10 questions, then share a link. Your friend has 24 hours to beat your score.
-      </p>
-
-      <div className="w-full max-w-sm flex flex-col gap-4">
-        <div>
-          <label className="block text-xs text-gray-600 uppercase tracking-wider mb-2">Subject</label>
-          <div className="flex flex-col gap-1">
-            {MVP_SUBJECTS.map(s => (
-              <button
-                key={s}
-                onClick={() => setSubject(s)}
-                className={`text-left px-4 py-2 text-sm transition ${
-                  subject === s
-                    ? 'bg-indigo-600 text-white'
-                    : 'bg-gray-800 text-gray-400 hover:bg-gray-700'
-                }`}
-              >
-                {s}
-                {s !== 'AP Chemistry' && <span className="ml-2 text-xs text-gray-600">Coming soon</span>}
-              </button>
-            ))}
-          </div>
+    <main className="min-h-screen text-[#F5F0E8] flex flex-col items-center justify-center px-4 py-16">
+      <div className="relative z-10 w-full max-w-md flex flex-col gap-6">
+        <div className="flex items-center justify-between">
+          <Link
+            href="/"
+            className="text-[#6B7280] hover:text-[#C9A84C] text-sm tracking-wide transition-colors"
+          >
+            ← Lobby
+          </Link>
+          <span className="font-display text-xs uppercase tracking-[0.2em] text-[#6B7280]">
+            Async Challenge
+          </span>
         </div>
 
-        {error && <p className="text-red-400 text-sm">{error}</p>}
+        <div className="panel panel-accent-top animate-rise-in p-8 flex flex-col gap-7">
+          <header className="flex flex-col gap-3">
+            <h1 className="font-display font-black uppercase tracking-[0.12em] text-4xl leading-none text-foil">
+              Create Challenge
+            </h1>
+            <div className="rule-gold" />
+            <p className="text-[#6B7280] text-sm leading-relaxed">
+              Play 10 questions, then share a link. Your friend has{' '}
+              <span className="text-[#F5F0E8]/80 font-medium">24 hours</span> to beat your score.
+            </p>
+          </header>
 
-        <button
-          onClick={createChallenge}
-          disabled={loading || subject !== 'AP Chemistry'}
-          className="bg-indigo-600 hover:bg-indigo-500 disabled:opacity-40 text-white font-bold px-8 py-3 transition"
-        >
-          {loading ? 'Creating…' : 'Start Challenge'}
-        </button>
+          <div className="flex flex-col gap-3">
+            <label className="font-display text-[11px] text-[#6B7280] uppercase tracking-[0.2em]">
+              Subject
+            </label>
+            <div className="flex flex-col gap-1.5">
+              {MVP_SUBJECTS.map(s => {
+                const active = subject === s;
+                const locked = s !== 'AP Chemistry';
+                return (
+                  <button
+                    key={s}
+                    onClick={() => setSubject(s)}
+                    aria-pressed={active}
+                    className={`group text-left px-4 py-3 border transition-colors flex items-center justify-between focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#C9A84C] ${
+                      active
+                        ? 'bg-[#1C1C1C] border-[#C9A84C] text-[#F5F0E8]'
+                        : 'bg-[#141414] border-[#2A2A2A] text-[#6B7280] hover:border-[#374151] hover:text-[#F5F0E8]/80'
+                    }`}
+                  >
+                    <span className="flex items-center gap-3">
+                      <span
+                        aria-hidden="true"
+                        className={`inline-block w-1.5 h-1.5 transition-colors ${
+                          active ? 'bg-[#C9A84C]' : 'bg-[#374151] group-hover:bg-[#6B7280]'
+                        }`}
+                      />
+                      <span className="font-display uppercase tracking-[0.06em] text-sm">{s}</span>
+                    </span>
+                    {locked && (
+                      <span className="font-display text-[10px] uppercase tracking-[0.18em] text-[#6B7280]/70">
+                        Coming Soon
+                      </span>
+                    )}
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+
+          {error && (
+            <p className="text-[#EF4444] text-sm tracking-wide border-l-2 border-[#EF4444] pl-3">
+              {error}
+            </p>
+          )}
+
+          <button
+            onClick={createChallenge}
+            disabled={loading || subject !== 'AP Chemistry'}
+            className="btn-gold font-display font-black uppercase tracking-[0.2em] px-8 py-4 text-sm"
+          >
+            {loading ? 'Creating…' : 'Start Challenge'}
+          </button>
+        </div>
       </div>
     </main>
   );

@@ -48,79 +48,111 @@ export default function SignupPage() {
   }
 
   return (
-    <main className="min-h-screen bg-[#0A0A0A] flex flex-col items-center justify-center px-4">
-      {/* Logo */}
-      <div className="mb-10 flex flex-col items-center">
-        <Image
-          src="/logo.png"
-          alt="Studiem"
-          width={240}
-          height={72}
-          priority
-          className="mb-3"
-        />
-        <p className="text-[#F5F0E8]/25 text-xs uppercase tracking-[0.35em]">
-          Competitive Knowledge Battles
-        </p>
-      </div>
+    <main className="min-h-screen flex flex-col items-center justify-center px-4 relative z-10">
+      <div className="relative w-full max-w-sm flex flex-col items-center">
+        <div className="glow-focus animate-glow-pulse" />
 
-      <div className="w-full max-w-sm flex flex-col gap-3">
-        {/* Google */}
-        <button
-          onClick={handleGoogleSignup}
-          className="flex items-center justify-center gap-3 bg-white hover:bg-gray-100 text-gray-900 font-semibold px-6 py-3 transition-colors text-sm"
-        >
-          <GoogleIcon />
-          Continue with Google
-        </button>
-
-        {/* Divider */}
-        <div className="flex items-center gap-3 my-1">
-          <div className="flex-1 h-px bg-[#2A2A2A]" />
-          <span className="text-[#374151] text-xs uppercase tracking-widest">or</span>
-          <div className="flex-1 h-px bg-[#2A2A2A]" />
+        {/* Logo lockup */}
+        <div className="relative z-10 mb-8 flex flex-col items-center animate-rise-in">
+          <Image
+            src="/logo.png"
+            alt="Studiem"
+            width={240}
+            height={72}
+            priority
+            className="mb-4"
+          />
+          <div className="rule-gold w-32 mb-4" />
+          <p className="text-[#F5F0E8]/30 text-[0.65rem] uppercase tracking-[0.4em]">
+            Competitive Knowledge Battles
+          </p>
         </div>
 
-        {/* Form */}
-        <form onSubmit={handleSignup} className="flex flex-col gap-3">
-          <input
-            type="text"
-            placeholder="Display name"
-            value={displayName}
-            onChange={e => setDisplayName(e.target.value)}
-            required
-            minLength={2}
-            maxLength={24}
-            className="bg-[#141414] border border-[#2A2A2A] px-4 py-3 text-[#F5F0E8] placeholder-[#374151] text-sm focus:outline-none focus:border-[#C9A84C]/50 transition-colors"
-          />
-          <input
-            type="email"
-            placeholder="Email"
-            value={email}
-            onChange={e => setEmail(e.target.value)}
-            required
-            className="bg-[#141414] border border-[#2A2A2A] px-4 py-3 text-[#F5F0E8] placeholder-[#374151] text-sm focus:outline-none focus:border-[#C9A84C]/50 transition-colors"
-          />
-          <input
-            type="password"
-            placeholder="Password (min 6 chars)"
-            value={password}
-            onChange={e => setPassword(e.target.value)}
-            required
-            minLength={6}
-            className="bg-[#141414] border border-[#2A2A2A] px-4 py-3 text-[#F5F0E8] placeholder-[#374151] text-sm focus:outline-none focus:border-[#C9A84C]/50 transition-colors"
-          />
-          {error && <p className="text-[#EF4444] text-xs">{error}</p>}
-          <button
-            type="submit"
-            disabled={loading}
-            className="bg-[#C9A84C] hover:bg-[#D4B565] disabled:opacity-40 text-[#0A0A0A] font-display font-bold text-base uppercase tracking-[0.18em] py-3 transition-colors"
-          >
-            {loading ? 'Creating account…' : 'Create Account'}
-          </button>
-        </form>
+        {/* Auth panel */}
+        <div
+          className="panel-raised panel-accent-top relative z-10 w-full p-8 animate-rise-in"
+          style={{ animationDelay: '0.08s' }}
+        >
+          <h1 className="font-display font-black text-2xl uppercase tracking-[0.18em] text-[#F5F0E8] mb-1">
+            Create Account
+          </h1>
+          <p className="text-[#6B7280] text-xs uppercase tracking-[0.2em] mb-6">
+            Claim your rank
+          </p>
 
-        <p className="text-[#374151] text-xs text-center mt-2">
+          {/* Google */}
+          <button
+            onClick={handleGoogleSignup}
+            className="w-full flex items-center justify-center gap-3 bg-white hover:bg-gray-100 text-gray-900 font-semibold px-6 py-3 transition-colors text-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#D4B565]"
+          >
+            <GoogleIcon />
+            Continue with Google
+          </button>
+
+          {/* Divider */}
+          <div className="flex items-center gap-3 my-5">
+            <div className="flex-1 h-px bg-[#2A2A2A]" />
+            <span className="text-[#374151] text-[0.65rem] uppercase tracking-[0.3em]">or</span>
+            <div className="flex-1 h-px bg-[#2A2A2A]" />
+          </div>
+
+          {/* Form */}
+          <form onSubmit={handleSignup} className="flex flex-col gap-3">
+            <label className="flex flex-col gap-1.5">
+              <span className="text-[#6B7280] text-[0.65rem] uppercase tracking-[0.22em]">Display Name</span>
+              <input
+                type="text"
+                placeholder="Your callsign"
+                value={displayName}
+                onChange={e => setDisplayName(e.target.value)}
+                required
+                minLength={2}
+                maxLength={24}
+                className="bg-[#0A0A0A] border border-[#2A2A2A] px-4 py-3 text-[#F5F0E8] placeholder-[#374151] text-sm focus:outline-none focus:border-[#C9A84C] focus:ring-1 focus:ring-[#C9A84C]/40 transition-colors"
+              />
+            </label>
+            <label className="flex flex-col gap-1.5">
+              <span className="text-[#6B7280] text-[0.65rem] uppercase tracking-[0.22em]">Email</span>
+              <input
+                type="email"
+                placeholder="you@example.com"
+                value={email}
+                onChange={e => setEmail(e.target.value)}
+                required
+                className="bg-[#0A0A0A] border border-[#2A2A2A] px-4 py-3 text-[#F5F0E8] placeholder-[#374151] text-sm focus:outline-none focus:border-[#C9A84C] focus:ring-1 focus:ring-[#C9A84C]/40 transition-colors"
+              />
+            </label>
+            <label className="flex flex-col gap-1.5">
+              <span className="text-[#6B7280] text-[0.65rem] uppercase tracking-[0.22em]">Password</span>
+              <input
+                type="password"
+                placeholder="Min 6 characters"
+                value={password}
+                onChange={e => setPassword(e.target.value)}
+                required
+                minLength={6}
+                className="bg-[#0A0A0A] border border-[#2A2A2A] px-4 py-3 text-[#F5F0E8] placeholder-[#374151] text-sm focus:outline-none focus:border-[#C9A84C] focus:ring-1 focus:ring-[#C9A84C]/40 transition-colors"
+              />
+            </label>
+            {error && (
+              <p className="text-[#EF4444] text-xs border-l-2 border-[#EF4444] pl-2 py-1 bg-[#EF4444]/5">
+                {error}
+              </p>
+            )}
+            <button
+              type="submit"
+              disabled={loading}
+              className="btn-gold font-display font-black text-base uppercase tracking-[0.2em] py-3.5 mt-1"
+            >
+              {loading ? 'Creating account…' : 'Create Account'}
+            </button>
+          </form>
+        </div>
+
+        <p
+          className="relative z-10 text-[#6B7280] text-xs text-center mt-6 uppercase tracking-[0.15em] animate-rise-in"
+          style={{ animationDelay: '0.16s' }}
+        >
           Have an account?{' '}
           <Link href="/login" className="text-[#C9A84C] hover:text-[#D4B565] transition-colors">
             Sign in
